@@ -1,0 +1,22 @@
+1- sa (swap a): Swaps the 2 top elements of stack_a
+
+2- sb (swap b): Swaps the 2 top elements of stack_b
+
+3 - ss (swap a & swap b): Performs both sa and sb
+
+4 - pa (push a): Moves the top element of stack b to the top of stack_a
+
+5 - pb (push b): Moves the top element of stack a to the top of stack_b
+
+6 - ra (rotate a): Shifts all elements of stack_a from bottom to top
+
+7 - rb (rotate b): Shifts all elements of stack_b from bottom to top
+
+8 - rr (rotate a & rotate b): Both ra and rb
+
+9 - rra (reverse rotate a): Shifts all elements of stack_a from top to bottom
+
+10 - rrb (reverse rotate b): Shifts all elements of stack_b from top to bottom
+
+11 - rrr (reverse rotate a & reverse rotate b): Performs both rra and rrb
+
