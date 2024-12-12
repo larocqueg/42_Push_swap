@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 16:08:47 by gde-la-r          #+#    #+#             */
-/*   Updated: 2024/11/28 16:10:01 by gde-la-r         ###   ########.fr       */
+/*   Created: 2024/12/09 10:22:44 by gde-la-r          #+#    #+#             */
+/*   Updated: 2024/12/09 10:37:26 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-int	main(int ac, char **av)
+# include <unistd.h>
+# include <stdlib.h>
+# include <stddef.h>
+# include <stdboll.h>
+# include <limits.h>
+
+typedef struct	s_stack_node
 {
-	if (ac == 1 || (ac == 2 && av[1][0] == '\0'))
-		return (1);
-}
+	int					nbr;
+	int					index
+	int					push_cost;
+	bool				above_median;
+	bool				cheapest;
+	struct s_stack_node	*target;
+	struct s_stack_node	*next;
+	struct s_stack_node	*prev;
+}	t_stack_node;
+
+#endif
