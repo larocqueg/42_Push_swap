@@ -6,12 +6,12 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 17:29:54 by gde-la-r          #+#    #+#             */
-/*   Updated: 2024/12/16 17:30:46 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2024/12/16 19:49:23 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include ".././includes/push_swap.h"
 
-t_list *init_stack()
+t_stack	*init_stack(t_stack *head)
 {
 }
