@@ -1,38 +1,43 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 10:37:31 by gde-la-r          #+#    #+#             */
-/*   Updated: 2024/12/09 11:03:35 by gde-la-r         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include ".././includes/push_swap.h"
 
 int	main(int ac, char **av)
 {
-	t_stack_node	*a;
-	t_stack_node	*b;
+	// valid argument numbers
+		
+		//call split function
+	
+		//if split worked call he sorting funtion
+	
+		/*
+			sa(swap a): Swap the first 2 elements at the top of stack a.
+			Do nothing if there is only one or no elements;
 
-	a = NULL;
-	b = NULL;
-	if (ac == 1 || av[1][0] == 0)
-		return (1);
-	else if (ac == 2)
-		av = ft_split(av[1], ' ');
-	ft_init_stack_a(&a, ++av);
-	if (!sorted_stack(a))
-	{
-		if (ft_stack_len(a) == 2)
-			sa(&a, false);
-		else if (ft_stack_len(a) == 3)
-			ft_sort_3(&a);
-		else
-			ft_sort_stacks(&a, &b);
-	}
-	ft_free_stack(&a);
-	return (0);
+			sb(swap b): Swap the first 2 elements at the top of stack b.
+			Do nothing if there is only one or no elements;
+
+			ss: sa && ab at the same time (following the same rules);
+
+			pa(push a): Take the first element at the top of b and put it at
+			the top of a. Do nothing if b is empty;
+
+			pb(push b): Take the first element at the top of a and put it at
+			the top of b. Do nothing if a is empty;
+
+			ra(rotate a): Shift up all elements of stack a by 1.
+			The 1st element becomes the last one;
+
+			rb(rotate b): Shift up all elements of stacj b by 1.
+			The 1st element becomes the last one;
+
+			rr: ra && rb at the same time;
+
+			rra(reverse rotate a): Shift down all elements of stack a by 1.
+			The last becomes the 1st;
+
+			rrb(reverse rotate b): Shift down all elements of stack b by 1.
+			The last becomes the 1st;
+
+			rrr: rra && rrb at the same time.
+		*/
+	// If a error is detected it must return "Error\n" on the stderror.
 }
