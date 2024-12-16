@@ -6,13 +6,15 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:13:02 by gde-la-r          #+#    #+#             */
-/*   Updated: 2024/12/16 14:24:44 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2024/12/16 15:15:30 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include ".././libft/libft.h"
+# include <stdbool.h>
+# include <limits.h>
+# include ".././libft/libft.h"
 
 #endif
