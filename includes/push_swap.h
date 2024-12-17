@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:13:02 by gde-la-r          #+#    #+#             */
-/*   Updated: 2024/12/17 13:29:05 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2024/12/17 14:15:58 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ t_stack	*ra(t_stack *a);
 t_stack	*rb(t_stack *b);
 t_stack	*rra(t_stack *a);
 t_stack	*rrb(t_stack *b);
+size_t	ft_stack_len(t_stack *stack);
 
 #endif
