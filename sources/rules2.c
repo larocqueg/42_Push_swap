@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   rules2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 14:11:03 by gde-la-r          #+#    #+#             */
-/*   Updated: 2024/12/17 14:32:34 by gde-la-r         ###   ########.fr       */
+/*   Created: 2024/12/17 14:31:20 by gde-la-r          #+#    #+#             */
+/*   Updated: 2024/12/17 14:31:34 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include ".././includes/push_swap.h"
 
-size_t	ft_stack_len(t_stack *stack)
+t_stack	*ra(t_stack *a)
 {
-	size_t	len;
-	t_stack	*temp;
+}
 
-	if (!stack && !stack->next)
-		return (0);
-	temp = stack;
+t_stack	*rb(t_stack *b)
+{
+}
+
+t_stack	*rra(t_stack *a)
+{
+}
+
+t_stack	*rrb(t_stack *b)
+{
 }
