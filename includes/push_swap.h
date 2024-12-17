@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:13:02 by gde-la-r          #+#    #+#             */
-/*   Updated: 2024/12/16 19:47:11 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2024/12/17 13:29:05 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 typedef struct s_stack
 {
 	int				n;
-	int				ndex;
+	int				index;
 	int				cost;
 	bool			a_median;
 	bool			cheapest;
