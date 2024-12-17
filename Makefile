@@ -6,37 +6,56 @@
 #    By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/16 14:20:05 by gde-la-r          #+#    #+#              #
-#    Updated: 2024/12/17 13:41:44 by gde-la-r         ###   ########.fr        #
+#    Updated: 2024/12/17 14:00:32 by gde-la-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=push_swap
+# Name of the returning file
+NAME = push_swap
 
-CC=cc
-CFLAGS= -Wall -Wextra -Werror
+# Compilation method and flags
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 
-INCLUDES=./includes
-SRC_DIR=./sources
-SRC= $(SRC_DIR)/main.c \
-	 $(SRC_DIR)/rules.c \
-	 $(SRC_DIR)/errors.c 
-OBJ= $(SRC:.c=.o)
+# Macros for each folder
+INCLUDES = ./includes
+SRC_DIR = ./sources
+LIBFT_DIR = ./libft
 
+# Files to seach at each folder
+SRC = $(SRC_DIR)/main.c \
+      $(SRC_DIR)/rules.c \
+      $(SRC_DIR)/errors.c
+OBJ = $(SRC:.c=.o)
+LIBFT = $(LIBFT_DIR)/libft.a
+
+# After compiling everythin it return a file with the NAME
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	ar rcs $(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+# Compiles the OBJ and LIBFT to the NAME
+$(NAME): $(OBJ) $(LIBFT)
+	$(CC) $(CFLAGS) -I $(INCLUDES) $(OBJ) -L $(LIBFT_DIR) -lft -o $(NAME)
+
+# Runs make for LIBFT
+$(LIBFT):
+	make -C $(LIBFT_DIR)
+	make bonus -C $(LIBFT_DIR)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
 
+# Removes all .o files
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(OBJ)
+	make clean -C $(LIBFT_DIR)
 
+# Run clean and remove the NAME and LIBFT_NAME
 fclean: clean
 	rm -rf $(NAME)
+	make fclean -C $(LIBFT_DIR)
 
-re: fclean
-	make
+# Run fclean followed by all
+re: fclean all
 
+# Avoid name clashes
 .PHONY: all clean fclean re
