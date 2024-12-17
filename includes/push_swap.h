@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:13:02 by gde-la-r          #+#    #+#             */
-/*   Updated: 2024/12/17 15:20:52 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2024/12/17 15:29:37 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,6 @@ typedef struct s_stack
 }	t_stack;
 
 void	ft_init_stack(t_stack **a, char **av);
-t_stack	*sa(t_stack	*a);
-t_stack	*sb(t_stack *b);
-t_stack	*pa(t_stack *a, t_stack *b);
-t_stack	*pb(t_stack *a, t_stack *b);
-t_stack	*ra(t_stack *a);
-t_stack	*rb(t_stack *b);
-t_stack	*rra(t_stack *a);
-t_stack	*rrb(t_stack *b);
 size_t	ft_stack_len(t_stack *stack);
 
 #endif
