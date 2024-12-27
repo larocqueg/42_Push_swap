@@ -6,7 +6,7 @@
 #    By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/27 13:56:33 by gde-la-r          #+#    #+#              #
-#    Updated: 2024/12/27 15:13:28 by gde-la-r         ###   ########.fr        #
+#    Updated: 2024/12/27 15:20:51 by gde-la-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ COMMANDS_DIR = ./sources/commands
 PW_DIR = ./sources
 INCLUDES = ./includes
 LIBFT_DIR = ./libft
-FT_PRINTF_DIR = ./ft-printf
+FT_PRINTF_DIR = ./ft_printf
 
 # Source files
 SRCS = $(COMMANDS_DIR)/push.c \

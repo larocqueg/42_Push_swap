@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:13:02 by gde-la-r          #+#    #+#             */
-/*   Updated: 2024/12/27 13:40:41 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2024/12/27 15:20:37 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdbool.h>
 # include <limits.h>
 # include ".././libft/libft.h"
-# include ".././ft-printf/ft_printf.h"
+# include ".././ft_printf/ft_printf.h"
 
 typedef struct s_stack
 {
