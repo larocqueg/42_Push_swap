@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 19:49:30 by gde-la-r          #+#    #+#             */
-/*   Updated: 2024/12/27 13:40:11 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2024/12/27 15:32:38 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ After sorting the stacks it frees the allocated memory and returns 0,
 indicating success
 */
 
-#include ".././includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 int	main(int ac, char **av)
 {
