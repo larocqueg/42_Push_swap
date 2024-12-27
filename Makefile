@@ -6,7 +6,7 @@
 #    By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/16 14:20:05 by gde-la-r          #+#    #+#              #
-#    Updated: 2024/12/17 14:28:00 by gde-la-r         ###   ########.fr        #
+#    Updated: 2024/12/27 10:59:47 by gde-la-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ CFLAGS = -Wall -Wextra -Werror
 INCLUDES = ./includes
 SRC_DIR = ./sources
 LIBFT_DIR = ./libft
-FT_PRINTF_DIR = ./ft_printf
+FT_PRINTF_DIR = ./printf
 
 # Files to search at each folder
 SRC = $(SRC_DIR)/main.c \
