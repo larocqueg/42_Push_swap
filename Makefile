@@ -1,67 +1,75 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/12/16 14:20:05 by gde-la-r          #+#    #+#              #
-#    Updated: 2024/12/27 11:02:54 by gde-la-r         ###   ########.fr        #
+#    Created: 2024/12/27 13:56:33 by gde-la-r          #+#    #+#              #
+#    Updated: 2024/12/27 14:38:55 by gde-la-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# Name of the returning file
+# Name of the executable
 NAME = push_swap
 
 # Compilation method and flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
-# Macros for each folder
+# Directories
+COMMANDS_DIR = ./sources/commands
+PW_DIR = ./sources
 INCLUDES = ./includes
-SRC_DIR = ./sources
 LIBFT_DIR = ./libft
 FT_PRINTF_DIR = ./ft-printf
 
-# Files to search at each folder
-SRC = $(SRC_DIR)/main.c \
-      $(SRC_DIR)/rules.c \
-      $(SRC_DIR)/errors.c
-OBJ = $(SRC:.c=.o)
+# Source files
+SRCS = $(COMMANDS_DIR)/push.c \
+       $(COMMANDS_DIR)/rev_rotate.c \
+       $(COMMANDS_DIR)/rotate.c \
+       $(COMMANDS_DIR)/sort_stacks.c \
+       $(COMMANDS_DIR)/sort_three.c \
+       $(COMMANDS_DIR)/swap.c \
+       $(PW_DIR)/main.c
+
+# Objects, libft, and ft_printf inclusion
+OBJ = $(SRCS:.c=.o)
 LIBFT = $(LIBFT_DIR)/libft.a
 FT_PRINTF = $(FT_PRINTF_DIR)/libftprintf.a
 
-# After compiling everything it returns a file with the NAME
+# Default rule
 all: $(NAME)
 
-# Compiles the OBJ and LIBFT to the NAME
+# Build the executable
 $(NAME): $(OBJ) $(LIBFT) $(FT_PRINTF)
-	$(CC) $(CFLAGS) -I $(INCLUDES) $(OBJ) -L $(LIBFT_DIR) -lft -L $(FT_PRINTF_DIR) -lftprintf -o $(NAME)
+	$(CC) $(FLAGS) -I $(INCLUDES) $(OBJ) -L $(LIBFT_DIR) -lft -L $(FT_PRINTF_DIR) -lftprintf -o $(NAME)
 
-# Runs make for LIBFT
+# Build libft
 $(LIBFT):
 	make -C $(LIBFT_DIR)
 
-# Runs make for FT_PRINTF
+# Build ft_printf
 $(FT_PRINTF):
 	make -C $(FT_PRINTF_DIR)
 
+# Compile object files
 %.o: %.c
-	$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
+	$(CC) $(FLAGS) -I $(INCLUDES) -c $< -o $@
 
-# Removes all .o files
+# Clean object files
 clean:
 	rm -rf $(OBJ)
 	make clean -C $(LIBFT_DIR)
 	make clean -C $(FT_PRINTF_DIR)
 
-# Run clean and remove the NAME and LIBFT_NAME
+# Full clean
 fclean: clean
 	rm -rf $(NAME)
 	make fclean -C $(LIBFT_DIR)
 	make fclean -C $(FT_PRINTF_DIR)
 
-# Run fclean followed by all
+# Rebuild everything
 re: fclean all
 
 # Avoid name clashes
