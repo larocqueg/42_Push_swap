@@ -6,7 +6,7 @@
 #    By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/27 13:56:33 by gde-la-r          #+#    #+#              #
-#    Updated: 2024/12/27 16:42:07 by gde-la-r         ###   ########.fr        #
+#    Updated: 2025/01/02 16:33:42 by gde-la-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ SRCS = $(COMMANDS_DIR)/push.c \
        $(COMMANDS_DIR)/swap.c \
        $(PW_DIR)/main.c \
 	   $(PW_DIR)/utils.c \
-	   $(PW_DIR)/init_stack.c
+	   $(PW_DIR)/sort.c 
 
 # Objects, libft, and ft_printf inclusion
 OBJ = $(SRCS:.c=.o)
