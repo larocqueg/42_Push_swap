@@ -6,13 +6,13 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:21:19 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/02 17:11:18 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/03 14:19:54 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sort_three(t_stack *s)
+void	ft_sort_three(t_stack *s)
 {
 	if (s->n > s->next->n && s->next->n > s->next->next->n)
 	{
@@ -32,6 +32,6 @@ void	sort_three(t_stack *s)
 	}
 }
 
-void	sort_stacks(t_stack *a)
+void	ft_sort_stacks(t_stack *a, t_stack *b)
 {
 }

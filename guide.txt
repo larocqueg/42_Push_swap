@@ -1,9 +1,0 @@
-1- if stack_a ln > 3: Push 2 top nodes from a to b;
-
-2- Untill stack_a len > 3: Push one node from a to b checkeing the cost and sorting b in descending order at the same time of the push
-
-3- When stack_a len == 3: Use the sortThree
-
-4- Pull all nodes from b to a
-
-5- Organize stack_a in ascending order (Smallest to the biggest)
