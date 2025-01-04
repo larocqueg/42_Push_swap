@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 14:11:03 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/04 20:29:48 by gde-la-r         ###   ########.fr       */
+/*   Created: 2025/01/04 19:53:31 by gde-la-r          #+#    #+#             */
+/*   Updated: 2025/01/04 20:40:00 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include ".././includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-size_t	ft_stack_len(t_stack *stack)
+int	main(int ac, char **av)
 {
-	size_t	len;
-	t_stack	*temp;
+	t_stack	*a;
+	t_stack	*b;
 
-	if (!stack && !stack->next)
+	if (ac == 1)
 		return (0);
-	temp = stack;
-	while (stack != NULL)
+	else if (ac == 2)
 	{
-		temp = stack->next;
-		len++;
-	}
-	return (len);
-}
-
-int	only_numbers(char *str)
-{
-	while(*str)
-	{
-		if (str < '0' || str > '9')
+		if (!av[1][0])
 			return (0);
-		i++;
+		av = ft_split(av[1], ' ');
 	}
-	return (1);
+	a = init_stack(&a, av + 1);
+	if (!sorted(a))
+	{
+		if (ft_stack_len(a) == 2)
+			sa(&a, false);
+		else if (stack_len(a) == 3)
+			ft_sort_three(&a);
+		else
+			ft_sort(&a, &b);
+	}
+	free_stack(&a);
+	return (0);
 }

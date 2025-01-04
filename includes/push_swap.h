@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:13:02 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/03 15:00:50 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/04 20:41:56 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,8 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }	t_stack;
 
+void	ft_sort_three(t_stack *a);
+void	ft_sort(t_stack *a, t-stack *b);
 size_t	ft_stack_len(t_stack *stack);
-void	ft_sort_three(t_stack *s);
-void	ft_sort_stacks(t_stack *a, t_stack *b);
-void	push_2_smallest_to_b(t_stack **a, t_stack **b);
-void	push_back(t_stack **a, t_stack **b);
-
+int		only_numbers(char *str);
 #endif
