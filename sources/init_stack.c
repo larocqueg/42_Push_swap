@@ -6,13 +6,13 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 20:05:22 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/05 18:54:57 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/05 19:18:54 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	init_stack(t_stack *stack, char **nums)
+void	init_stack_a(t_stack *stack, char **nums)
 {
 	int		i;
 	long	n;
