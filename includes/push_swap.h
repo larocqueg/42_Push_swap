@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:13:02 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/05 19:12:11 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/05 19:20:42 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,8 @@ void	ft_sort(t_stack *a, t_stack *b);
 size_t	ft_stack_len(t_stack *stack);
 int		only_numbers(char **arr);
 int		doubles(t_stack *stack, int n);
+
+// init_stack.c
+void	init_stack_a(t_stack *stack, char **nums);
 
 #endif
