@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 20:05:22 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/04 20:28:19 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/05 18:54:57 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,16 @@ void	init_stack(t_stack *stack, char **nums)
 	int		i;
 	long	n;
 
+	if (only_numbers(nums) == 0)
+		return (ft_printf("Error"));
 	i = 0;
-	while(av[i])
+	while(nums[i])
 	{
-		if (!only_numbers(nums[i]))
-		{
-			ft_error(stack);
-			return (ft_printf("Error"));
-		}
 		n = ft_atoi(nums[i]);
 		if (n > INT_MAX || n < INT_MIN)
-		{
-			ft_error(stack);
-			return (ft_printf("Error"));
-		}
-		if (doubles(*stack, (int)n))
-		{
-			ft_error(stack);
-			return (ft_printf("Error");
-		}
+			return (ft_error(stack));
+		else if(doubles(*stack, (int)n) == 0)
+			return (ft_error(stack));
 		create_nodes(a, (int)n);
 		i++;
 	}
