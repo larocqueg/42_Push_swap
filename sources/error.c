@@ -1,29 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 14:11:03 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/06 12:01:21 by gde-la-r         ###   ########.fr       */
+/*   Created: 2025/01/06 11:35:29 by gde-la-r          #+#    #+#             */
+/*   Updated: 2025/01/06 11:50:14 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include ".././includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-size_t	ft_stack_len(t_stack *stack)
+int	only_numbers(char **arr)
 {
-	size_t	len;
-	t_stack	*temp;
+	int	i;
+	int	j;
 
-	if (!stack && !stack->next)
-		return (0);
-	temp = stack;
-	while (stack != NULL)
+	i = 0;
+	while(arr[i])
 	{
-		temp = stack->next;
-		len++;
+		while(arr[i][j])
+		{
+			if (!(arr[i][j] >= '0' && arr[i][j] <= '9'))
+				return (0);
+			j++;
+		}
+		i++;
 	}
-	return (len);
+	return (1);
+}
+
+int	doubles(t_stack **stack, int n)
+{
+	if (!stack)
+		return (1);
+	while(stack->next)
+	{
+		if (n == stack->n)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }
