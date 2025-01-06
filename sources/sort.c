@@ -6,28 +6,13 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:21:19 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/06 14:56:10 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/06 19:28:49 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 int	ft_sorted(t_stack *stack)
-{
-	if (stack == NULL)
-		return (1);
-	while (stack->next)
-	{
-		if (stack->n > stack->next->n)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
-}
-
-void	ft_sort_three(t_stack **s)
-{
-	if ((*s)->n > (*s)->next->n && (*s)->next->n > (*s)->next->next->n)
 	{
 		sa(s, 1);
 		rra(s);
