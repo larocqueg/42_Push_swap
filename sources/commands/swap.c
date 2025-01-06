@@ -6,9 +6,11 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 13:52:22 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/06 12:47:40 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/06 13:38:47 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#inclyde "../../inlcudes/push_swap.h"
 
 static	void	swap(t_stack **stack)
 {

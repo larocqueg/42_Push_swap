@@ -6,7 +6,7 @@
 #    By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/27 13:56:33 by gde-la-r          #+#    #+#              #
-#    Updated: 2025/01/06 11:36:28 by gde-la-r         ###   ########.fr        #
+#    Updated: 2025/01/06 14:36:15 by gde-la-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,12 +25,10 @@ LIBFT_DIR = ./libft
 FT_PRINTF_DIR = ./ft_printf
 
 # Source files
-SRCS = $(COMMANDS_DIR)/push.c \
+SRCS = $(COMMANDS_DIR)/swap.c \
+	   $(COMMANDS_DIR)/push.c \
        $(COMMANDS_DIR)/rev_rotate.c \
        $(COMMANDS_DIR)/rotate.c \
-       $(COMMANDS_DIR)/sort_stacks.c \
-       $(COMMANDS_DIR)/sort_three.c \
-       $(COMMANDS_DIR)/swap.c \
        $(PW_DIR)/main.c \
 	   $(PW_DIR)/utils.c \
 	   $(PW_DIR)/sort.c \
