@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 13:52:22 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/06 12:37:33 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/06 12:47:40 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,29 @@ static	void	swap(t_stack **stack)
 	(*stack)->next = temp->next;
 	temp->next = *stack;
 	*stack = temp;
+}
+
+void	sa(t_stack **ai, int n)
+{
+	swap(*a);
+	if (n != 0)
+		ft_printf("sa\n");
+	return ;
+}
+
+void	sb(t_stack **b, int n)
+{
+	swap(*b);
+	if (n != 0)
+		ft_printf("sb\n");
+	return ;
+}
+
+void	ss(t_stack **a, t_stack **b, int n)
+{
+	swap(*a);
+	swap(*b);
+	if (n != 0)
+		ft_printf("ss\n");
+	return ;
 }

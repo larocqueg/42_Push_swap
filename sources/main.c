@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 19:53:31 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/06 12:17:56 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/06 12:46:46 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int ac, char **av)
 	if (!ft_sorted(a))
 	{
 		if (ft_stack_len(a) == 2)
-			sa(&a, false);
+			sa(&a, 0);
 		else if (stack_len(a) == 3)
 			ft_sort_three(&a);
 		else
