@@ -6,11 +6,11 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 13:52:22 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/06 13:38:47 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/06 14:39:00 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#inclyde "../../inlcudes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 static	void	swap(t_stack **stack)
 {
@@ -24,9 +24,9 @@ static	void	swap(t_stack **stack)
 	*stack = temp;
 }
 
-void	sa(t_stack **ai, int n)
+void	sa(t_stack **a, int n)
 {
-	swap(*a);
+	swap(a);
 	if (n != 0)
 		ft_printf("sa\n");
 	return ;
@@ -34,7 +34,7 @@ void	sa(t_stack **ai, int n)
 
 void	sb(t_stack **b, int n)
 {
-	swap(*b);
+	swap(b);
 	if (n != 0)
 		ft_printf("sb\n");
 	return ;
@@ -42,8 +42,8 @@ void	sb(t_stack **b, int n)
 
 void	ss(t_stack **a, t_stack **b, int n)
 {
-	swap(*a);
-	swap(*b);
+	swap(a);
+	swap(b);
 	if (n != 0)
 		ft_printf("ss\n");
 	return ;

@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 20:05:22 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/06 12:17:28 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/06 14:39:59 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	create_nodes(t_stack **stack, int n)
 	}
 }
 
-void	init_stack_a(t_stack **stack, char **nums)
+t_stack	*init_stack_a(t_stack **stack, char **nums)
 {
 	int		i;
 	long	n;

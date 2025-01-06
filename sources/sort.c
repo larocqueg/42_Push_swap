@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:21:19 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/06 12:48:27 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/06 14:56:10 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,35 +18,37 @@ int	ft_sorted(t_stack *stack)
 		return (1);
 	while (stack->next)
 	{
-		if (stack->n > stack->n->next)
+		if (stack->n > stack->next->n)
 			return (0);
 		stack = stack->next;
 	}
 	return (1);
 }
 
-void	ft_sort_three(t_stack *a)
+void	ft_sort_three(t_stack **s)
 {
-	if (s->n > s->next->n && s->next->n > s->next->next->n)
+	if ((*s)->n > (*s)->next->n && (*s)->next->n > (*s)->next->next->n)
 	{
 		sa(s, 1);
 		rra(s);
 	}
-	else if (s->n > s->next->next->n && s->next->next->n > s->next->n)
+	else if ((*s)->n > (*s)->next->next->n
+		&& (*s)->next->next->n > (*s)->next->n)
 		ra(s, 1);
-	else if (s->next->n > s->n && s->n > s->next->next->n)
+	else if ((*s)->next->n > (*s)->n && (*s)->n > (*s)->next->next->n)
 		rra(s, 1);
-	else if (s->next->n > s->next->next->n && s->next->next->n > s->n)
+	else if ((*s)->next->n > (*s)->next->next->n
+		&& (*s)->next->next->n > (*s)->n)
 		sa(s, 1);
-	else if (s->next->next->n > s->n && s->n > s->next->n)
+	else if ((*s)->next->next->n > (*s)->n && (*s)->n > (*s)->next->n)
 	{
 		sa(s, 1);
 		ra(s, 1);
 	}
 }
 
-void	ft_sort_stacks(t_stack *a, t_stack *b)
+void	ft_sort_stacks(t_stack **a, t_stack **b)
 {
 	if (!a)
-		return (1);
+		return ;
 }
