@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:13:02 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/06 16:14:02 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/06 17:48:45 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	ft_sort(t_stack **a, t_stack **b);
 // utils.c
 size_t	ft_stack_len(t_stack *stack);
 void	free_stack(t_stack **stack);
+t_stack *ft_last(t_stack *stack);
 
 // error.c
 int		ft_error(t_stack *a);
@@ -58,6 +59,9 @@ void	pa(t_stack **a, t_stack **b, int n);
 void	pb(t_stack **a, t_stack **b, int n);
 
 // rotate.c
+void	ra(t_stack **a, int n);
+void	rb(t_stack **b, int n);
+void	rr(t_stack **a, t_stack **b, int n);
 
 // rev_rotate.c
 

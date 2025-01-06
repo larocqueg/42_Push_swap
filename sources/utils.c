@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 14:11:03 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/06 14:47:43 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/06 17:39:23 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,13 @@ void	free_stack(t_stack **stack)
 		*stack = temp;
 	}
 	*stack = NULL;
+}
+
+t_stack *ft_last(t_stack *stack)
+{
+	if (!stack)
+		return (NULL);
+	while(stack->next)
+		stack = stack->next;
+	return (stack);
 }
