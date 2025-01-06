@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 19:53:31 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/06 14:45:52 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/06 19:47:07 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,4 @@ int	main(int ac, char **av)
 	}
 	free_stack(&a);
 	return (0);
-}
-
-void	free_stack(t_stack **stack)
-{
-	t_stack	*temp;
-
-	if (!stack)
-		return ;
-	while (*stack)
-	{
-		temp = (*stack)->next;
-		free(*stack);
-		*stack = temp;
-	}
-	*stack = NULL;
 }
