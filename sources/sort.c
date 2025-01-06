@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:21:19 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/06 11:34:41 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/06 12:18:18 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_sorted(t_stack *stack)
 {
 	if (stack == NULL)
 		return (1);
-	while(stack->next)
+	while (stack->next)
 	{
 		if (stack->n > stack->n->next)
 			return (0);
@@ -49,5 +49,4 @@ void	ft_sort_stacks(t_stack *a, t_stack *b)
 {
 	if (!a)
 		return (1);
-	
 }
