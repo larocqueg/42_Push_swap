@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:13:02 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/06 15:32:33 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/06 15:48:49 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,9 @@ void	ss(t_stack **a, t_stack **b, int n);
 // push.c
 void	pa(t_stack **a, t_stack **b, int n);
 void	pb(t_stack **a, t_stack **b, int n);
+
+// rotate.c
+
+// rev_rotate.c
 
 #endif
