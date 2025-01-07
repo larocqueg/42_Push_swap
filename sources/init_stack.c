@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 20:05:22 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/07 15:08:09 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/07 16:05:01 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ t_stack	*init_stack_a(t_stack **stack, char **nums)
 	int		i;
 	long	n;
 
-	if (only_numbers(nums) == 0)
-	{
-		ft_printf("Error\n");
-		return (NULL);
-	}
-	i = 0;
+	if (check_args(nums) == 1)
+		i = 1;
+	else
+		i = 0;
+	if (only_numbers(&nums[i]) == 0)
+		return (ft_printf("Error\n"), NULL);
 	while (nums[i])
 	{
 		n = ft_atoi(nums[i++]);
@@ -53,7 +53,7 @@ t_stack	*init_stack_a(t_stack **stack, char **nums)
 			ft_error(*stack);
 			return (NULL);
 		}
-		else if (doubles(stack, (int)n) == 0)
+		if (doubles(*stack, (int)n) == 0)
 		{
 			ft_error(*stack);
 			return (NULL);

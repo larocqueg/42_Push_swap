@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:35:29 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/07 14:44:50 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/07 16:12:18 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,23 @@ int	only_numbers(char **arr)
 	return (1);
 }
 
-int	doubles(t_stack **stack, int n)
+int	doubles(t_stack *stack, int n)
 {
-	if (!*stack)
+	if (!stack)
 		return (1);
-	while ((*stack)->next)
+	while (stack)
 	{
-		if (n == (*stack)->n)
+		if (n == stack->n)
 			return (0);
-		*stack = (*stack)->next;
+		stack = stack->next;
 	}
 	return (1);
+}
+
+int	check_args(char **av)
+{
+	if (only_numbers(av) == 0)
+		return (1);
+	else
+		return (0);
 }

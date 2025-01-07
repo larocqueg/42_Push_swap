@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:13:02 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/07 15:07:41 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/07 16:01:51 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ t_stack	*ft_last(t_stack *stack);
 // error.c
 int		ft_error(t_stack *a);
 int		only_numbers(char **arr);
-int		doubles(t_stack **stack, int n);
+int		doubles(t_stack *stack, int n);
+int		check_args(char **av);
 
 // init_stack.c
 void	create_nodes(t_stack **stack, int n);
