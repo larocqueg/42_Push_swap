@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 19:53:31 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/07 14:17:16 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:26:27 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int ac, char **av)
 		av = ft_split(av[1], ' ');
 		mem = 1;
 	}
-	a = init_stack_a(&a, av + 1);
+	a = init_stack_a(&a, &av[1]);
 	if (!ft_sorted(a))
 	{
 		if (ft_stack_len(a) == 2)
@@ -36,6 +36,6 @@ int	main(int ac, char **av)
 		else
 			ft_sort(&a, &b);
 	}
-	ft_free(&a, av + 1);
+	ft_free(&a, &av[1]);
 	return (0);
 }
