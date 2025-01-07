@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:21:19 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/06 14:56:10 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:43:14 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_sort_three(t_stack **s)
 	if ((*s)->n > (*s)->next->n && (*s)->next->n > (*s)->next->next->n)
 	{
 		sa(s, 1);
-		rra(s);
+		rra(s, 1);
 	}
 	else if ((*s)->n > (*s)->next->next->n
 		&& (*s)->next->next->n > (*s)->next->n)
@@ -49,6 +49,6 @@ void	ft_sort_three(t_stack **s)
 
 void	ft_sort_stacks(t_stack **a, t_stack **b)
 {
-	if (!a)
+	if (!a || !b)
 		return ;
 }

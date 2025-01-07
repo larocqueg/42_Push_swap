@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:35:29 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/06 12:16:39 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:44:50 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	only_numbers(char **arr)
 	i = 0;
 	while (arr[i])
 	{
+		j = 0;
 		while (arr[i][j])
 		{
 			if (!(arr[i][j] >= '0' && arr[i][j] <= '9'))
@@ -39,13 +40,13 @@ int	only_numbers(char **arr)
 
 int	doubles(t_stack **stack, int n)
 {
-	if (!stack)
+	if (!*stack)
 		return (1);
-	while (stack->next)
+	while ((*stack)->next)
 	{
-		if (n == stack->n)
+		if (n == (*stack)->n)
 			return (0);
-		stack = stack->next;
+		*stack = (*stack)->next;
 	}
 	return (1);
 }

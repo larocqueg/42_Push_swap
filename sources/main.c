@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 19:53:31 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/07 14:26:27 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/07 15:05:59 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,13 @@
 
 int	main(int ac, char **av)
 {
-	int		mem;
 	t_stack	*a;
 	t_stack	*b;
 
-	mem = 0;
 	if (ac == 1 || (ac == 2 && !av[1][0]))
 		return (-1);
 	else if (ac == 2)
-	{
 		av = ft_split(av[1], ' ');
-		mem = 1;
-	}
 	a = init_stack_a(&a, &av[1]);
 	if (!ft_sorted(a))
 	{
@@ -34,8 +29,11 @@ int	main(int ac, char **av)
 		else if (ft_stack_len(a) == 3)
 			ft_sort_three(&a);
 		else
-			ft_sort(&a, &b);
+			ft_sort_stacks(&a, &b);
 	}
-	ft_free(&a, &av[1]);
+	if (ac == 2)
+		ft_free(&a, &av[1]);
+	else
+		free_stack(&a);
 	return (0);
 }

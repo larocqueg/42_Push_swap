@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 13:52:07 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/06 17:59:39 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:39:54 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,20 @@ void	ra(t_stack **a, int n)
 {
 	rotate(a);
 	if (n != 0)
-		printf("ra\n");
-	return ;
+		ft_printf("ra\n");
 }
 
 void	rb(t_stack **b, int n)
 {
 	rotate(b);
 	if (n != 0)
-		printf("rb\n");
-	return ;}
+		ft_printf("rb\n");
+}
+
+void	rr(t_stack **a, t_stack **b, int n)
+{
+	rotate(a);
+	rotate(b);
+	if (n != 0)
+		ft_printf("rr\n");
 }

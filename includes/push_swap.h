@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:13:02 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/07 14:24:38 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/07 15:07:41 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ typedef struct s_stack
 // sort.c
 int		ft_sorted(t_stack *stack);
 void	ft_sort_three(t_stack **s);
-void	ft_sort(t_stack **a, t_stack **b);
+void	ft_sort_stacks(t_stack **a, t_stack **b);
 
 // utils.c
 size_t	ft_stack_len(t_stack *stack);
 void	free_stack(t_stack **stack);
 void	ft_free(t_stack **stack, char **arr);
-t_stack *ft_last(t_stack *stack);
+t_stack	*ft_last(t_stack *stack);
 
 // error.c
 int		ft_error(t_stack *a);
@@ -65,5 +65,8 @@ void	rb(t_stack **b, int n);
 void	rr(t_stack **a, t_stack **b, int n);
 
 // rev_rotate.c
+void	rra(t_stack **a, int n);
+void	rrb(t_stack **b, int n);
+void	rrr(t_stack **a, t_stack **b, int n);
 
 #endif

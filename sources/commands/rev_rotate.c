@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 13:52:03 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/06 19:36:35 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:37:27 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 
 static void	rev_rotate(t_stack **stack)
 {
-	t_stack *last;
-	t_stack *second_last;
+	t_stack	*last;
+	t_stack	*second_last;
 
 	if (!stack || !*stack)
-		return;
+		return ;
 	last = *stack;
 	second_last = NULL;
-	while(last->next)
+	while (last->next)
 	{
 		second_last = last;
 		last = last->next;
@@ -36,16 +36,14 @@ void	rra(t_stack **a, int n)
 {
 	rev_rotate(a);
 	if (n != 0)
-		printf("rra\n");
-	return ;
+		ft_printf("rra\n");
 }
 
 void	rrb(t_stack **b, int n)
 {
 	rev_rotate(b);
 	if (n != 0)
-		printf("rrb\n");
-	return ;
+		ft_printf("rrb\n");
 }
 
 void	rrr(t_stack **a, t_stack **b, int n)
@@ -53,6 +51,5 @@ void	rrr(t_stack **a, t_stack **b, int n)
 	rev_rotate(a);
 	rev_rotate(b);
 	if (n != 0)
-		printf("rrr\n");
-	return ;
+		ft_printf("rrr\n");
 }
