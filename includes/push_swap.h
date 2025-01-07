@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:13:02 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/07 16:01:51 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/07 16:23:43 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ size_t	ft_stack_len(t_stack *stack);
 void	free_stack(t_stack **stack);
 void	ft_free(t_stack **stack, char **arr);
 t_stack	*ft_last(t_stack *stack);
+void	check_2(t_stack **stack);
 
 // error.c
 int		ft_error(t_stack *a);

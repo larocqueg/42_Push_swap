@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 14:11:03 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/07 14:54:42 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/07 16:23:59 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,13 @@
 size_t	ft_stack_len(t_stack *stack)
 {
 	size_t	len;
-	t_stack	*temp;
 
 	if (!stack && !stack->next)
 		return (0);
-	temp = stack;
 	len = 0;
 	while (stack != NULL)
 	{
-		temp = stack->next;
+		stack = stack->next;
 		len++;
 	}
 	return (len);
@@ -64,4 +62,10 @@ t_stack	*ft_last(t_stack *stack)
 	while (stack->next)
 		stack = stack->next;
 	return (stack);
+}
+
+void	check_2(t_stack **stack)
+{
+	if ((*stack)->n > (*stack)->next->n)
+		sa(stack, 1);
 }
