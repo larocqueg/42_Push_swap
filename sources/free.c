@@ -1,43 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 14:11:03 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/07 16:23:59 by gde-la-r         ###   ########.fr       */
+/*   Created: 2025/01/08 16:38:47 by gde-la-r          #+#    #+#             */
+/*   Updated: 2025/01/08 16:44:48 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include ".././includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-size_t	ft_stack_len(t_stack *stack)
+void	free_stack(t_stack **stack)
 {
-	size_t	len;
+	t_stack	*temp;
 
-	if (!stack && !stack->next)
-		return (0);
-	len = 0;
-	while (stack != NULL)
-	{
-		stack = stack->next;
-		len++;
-	}
-	return (len);
-}
-
-t_stack	*ft_last(t_stack *stack)
-{
 	if (!stack)
-		return (NULL);
-	while (stack->next)
-		stack = stack->next;
-	return (stack);
+		return ;
+	while (*stack)
+	{
+		temp = (*stack)->next;
+		free(*stack);
+		*stack = temp;
+	}
+	*stack = NULL;
 }
 
-void	check_2(t_stack **stack)
+void	ft_free(t_stack **stack, char **arr)
 {
-	if ((*stack)->n > (*stack)->next->n)
-		sa(stack, 1);
+	int	i;
+
+	if (!arr)
+		return ;
+	i = 0;
+	while (arr[i])
+		free(arr[i++]);
+	free(arr);
+	free_stack(stack);
 }
