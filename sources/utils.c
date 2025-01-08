@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 14:11:03 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/07 16:23:59 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/08 20:59:58 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,29 @@ void	check_2(t_stack **stack)
 {
 	if ((*stack)->n > (*stack)->next->n)
 		sa(stack, 1);
+}
+
+long	ft_atolong(const char *str)
+{
+	int		i;
+	int		sign;
+	long	num;
+
+	sign = 1;
+	i = 0;
+	num = 0;
+	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		num = num * 10 + (str[i] - '0');
+		i++;
+	}
+	return ((sign * num));
 }
