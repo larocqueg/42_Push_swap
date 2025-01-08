@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 19:53:31 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/08 15:03:02 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:40:10 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,14 @@ int	main(int ac, char **av)
 	{
 		ft_free(&a, av);
 		free_stack(&b);
+		ft_printf("All stacks where freed!\n");
+		ft_printf("Av where freed!\n");
 	}
 	else
 	{
 		free_stack(&a);
 		free_stack(&b);
+		ft_printf("All stacks where freed!\n");
 	}
 	return (0);
 }
