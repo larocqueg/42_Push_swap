@@ -6,16 +6,18 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 19:53:31 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/07 16:41:43 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:03:02 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void print_stack(t_stack *s)
+void print_stack(t_stack *s)
 {
 	int	print;
 
+	if (!s)
+		ft_printf("(NULL)\n");
 	print = 0;
     while (s)
     {
@@ -39,7 +41,10 @@ int	main(int ac, char **av)
 	else if (ac == 2)
 		av = ft_split(av[1], ' ');
 	a = init_stack_a(&a, av);
+	ft_printf("stack_a: ");
 	print_stack(a);
+	ft_printf("stack_b: ");
+	print_stack(b);
 	if (!ft_sorted(a))
 	{
 		if (ft_stack_len(a) == 2)
@@ -49,10 +54,19 @@ int	main(int ac, char **av)
 		else
 			ft_sort_stacks(&a, &b);
 	}
+	ft_printf("stack_a: ");
 	print_stack(a);
+	ft_printf("stack_b: ");
+	print_stack(b);
 	if (ac == 2)
+	{
 		ft_free(&a, av);
+		free_stack(&b);
+	}
 	else
+	{
 		free_stack(&a);
+		free_stack(&b);
+	}
 	return (0);
 }
