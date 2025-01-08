@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:13:02 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/08 14:52:46 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/08 16:36:20 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,5 @@ void	rr(t_stack **a, t_stack **b, int n);
 void	rra(t_stack **a, int n);
 void	rrb(t_stack **b, int n);
 void	rrr(t_stack **a, t_stack **b, int n);
-
-// main.c(test)
-void	print_stack(t_stack *s);
 
 #endif
