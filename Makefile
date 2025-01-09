@@ -6,7 +6,7 @@
 #    By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/27 13:56:33 by gde-la-r          #+#    #+#              #
-#    Updated: 2025/01/08 20:26:50 by gde-la-r         ###   ########.fr        #
+#    Updated: 2025/01/09 19:49:47 by gde-la-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,10 +32,10 @@ SRCS = $(COMMANDS_DIR)/swap.c \
        $(PW_DIR)/main.c \
 	   $(PW_DIR)/utils.c \
 	   $(PW_DIR)/sort.c \
+	   $(PW_DIR)/sort_utils.c \
 	   $(PW_DIR)/error.c \
 	   $(PW_DIR)/init_stack.c \
 	   $(PW_DIR)/free.c \
-	   $(PW_DIR)/sort_utils.c \
 	   $(PW_DIR)/print.c \
 
 # Objects, libft, and ft_printf inclusion

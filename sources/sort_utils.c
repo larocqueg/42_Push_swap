@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 17:50:25 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/08 21:49:28 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/09 18:33:29 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,6 @@ void	set_index(t_stack *stack)
 		stack = stack->next;
 	}
 }
-
-// Set cost
-
-// Find cheapest
 
 // Set median
 void	set_median(t_stack *stack)
@@ -56,4 +52,47 @@ void	set_median(t_stack *stack)
 	}
 }
 
-// above_median ?
+// Set targert
+
+void	set_target(t_stack *a, t_stack *b)
+{
+	t_stack	*temp_b;
+	t_stack	*target_node;
+
+	if (!a || !b)
+		return ;
+	while (a)
+	{
+		temp_b = b;
+		target_node = NULL;
+		while (temp_b)
+		{
+			if ((!target_node || temp_b->n > target_node->n)
+				&& temp_b->n < a->n)
+				target_node = temp_b;
+			temp_b = temp_b->next;
+		}
+		if (!target_node)
+			a->target = max_n(b);
+		else
+			a->target = target_node;
+		a = a->next;
+	}
+}
+
+// Find max number
+t_stack	*max_n(t_stack *stack)
+{
+	t_stack	*max;
+
+	if (!stack)
+		return (NULL);
+	max = stack;
+	while (stack)
+	{
+		if (stack->n > max->n)
+			max = stack;
+		stack = stack->next;
+	}
+	return (max);
+}

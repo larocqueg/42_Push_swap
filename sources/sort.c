@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:21:19 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/08 21:48:37 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/09 20:07:32 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,5 @@ void	ft_sort_stacks(t_stack **a, t_stack **b)
 	ft_sort_three(a);
 	set_index(*a);
 	set_median(*a);
+	set_target(*a, *b);
 }
