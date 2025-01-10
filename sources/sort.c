@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:21:19 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/09 20:07:32 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/10 16:12:13 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,23 +51,23 @@ void	ft_sort_three(t_stack **s)
 void	ft_sort_stacks(t_stack **a, t_stack **b)
 {
 	size_t	len;
-	int		count;
 
 	if (!a || !*a)
 		return ;
 	len = ft_stack_len(*a);
-	count = 2;
 	while (len > 3)
 	{
-		if (count > 0)
-		{
-			pb(a, b, 1);
-			count--;
-		}
+		pb(a, b, 1);
 		len--;
 	}
 	ft_sort_three(a);
+	reset_index(a, b);
+}
+
+void	reset_index(t_stack **a, t_stack **b)
+{
 	set_index(*a);
-	set_median(*a);
-	set_target(*a, *b);
+	set_index(*b);
+	set_target_a(*a, *b);
+	//set_target_b(*a, *b);
 }

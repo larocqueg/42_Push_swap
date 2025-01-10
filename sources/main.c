@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 19:53:31 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/09 20:07:55 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/10 16:19:05 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int	main(int ac, char **av)
 	print_index(a);
 	ft_printf("stack_a->median: ");
 	print_median(a);
+	ft_printf("stack_a->above_median; ");
+	print_above_median(a);
 	ft_printf("stack_a->target: ");
 	print_target(a);
 	ft_printf("stack_b: ");

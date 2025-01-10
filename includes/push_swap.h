@@ -6,14 +6,13 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:13:02 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/09 19:50:51 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/10 16:12:35 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdbool.h>
 # include <limits.h>
 # include "../libft/libft.h"
 # include "../ft_printf/ft_printf.h"
@@ -24,8 +23,8 @@ typedef struct s_stack
 	int				index; // position of n
 	int				cost; // push cost
 	int				median; // defines the median
-	bool			a_median; // is above of median?
-	bool			cheapest; // is the cheapest cost?
+	int				above_median; // is above of median?
+	int				cheapest; // is the cheapest cost?
 	struct s_stack	*target; // target node
 	struct s_stack	*next; // points to the next node of my stack
 	struct s_stack	*prev; // uso ou n?
@@ -35,6 +34,7 @@ typedef struct s_stack
 int		ft_sorted(t_stack *stack);
 void	ft_sort_three(t_stack **s);
 void	ft_sort_stacks(t_stack **a, t_stack **b);
+void	reset_index(t_stack **a, t_stack **b);
 
 // utils.c
 size_t	ft_stack_len(t_stack *stack);
@@ -44,9 +44,10 @@ long	ft_atolong(const char *str);
 
 // sort_utils.c
 void	set_index(t_stack *stack);
-void	set_median(t_stack *stack);
-void	set_target(t_stack *a, t_stack *b);
+//void	set_median(t_stack *stack);
+void	set_target_a(t_stack *a, t_stack *b);
 t_stack	*max_n(t_stack *stack);
+void	set_cost(t_stack *stack);
 
 //free.c
 void	free_stack(t_stack **stack);
@@ -84,6 +85,7 @@ void	rrr(t_stack **a, t_stack **b, int n);
 void	print_stack(t_stack *s);
 void	print_index(t_stack *s);
 void	print_median(t_stack *s);
+void	print_above_median(t_stack *s);
 void	print_target(t_stack *s);
 
 #endif

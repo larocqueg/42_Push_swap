@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 20:20:14 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/09 20:00:34 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/10 16:18:21 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	print_median(t_stack *s)
 {
 	int	print;
 
-	if (!s || !s->target)
+	if (!s)
 	{
 		ft_printf("(NULL)\n");
 		return ;
@@ -65,6 +65,26 @@ void	print_median(t_stack *s)
 	while (s)
 	{
 		ft_printf("%d ", s->median);
+		s = s->next;
+		print++;
+	}
+	if (print > 0)
+		ft_printf("\n");
+}
+
+void	print_above_median(t_stack *s)
+{
+	int	print;
+
+	if (!s)
+	{
+		ft_printf("(NULL)\n");
+		return ;
+	}
+	print = 0;
+	while (s)
+	{
+		ft_printf("%d ", s->above_median);
 		s = s->next;
 		print++;
 	}

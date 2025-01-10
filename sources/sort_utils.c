@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 17:50:25 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/09 18:33:29 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/10 16:14:29 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,33 @@
 void	set_index(t_stack *stack)
 {
 	int	n;
+	int	len;
 
 	if (!stack)
 		return ;
 	n = 0;
+	len = ft_stack_len(stack);
 	while (stack)
 	{
 		stack->index = n++;
+		if (stack->index < len / 2 || stack->index > len / 2)
+		{
+			stack->median = 0;
+			if (stack->index < len / 2)
+				stack->above_median = 0;
+			else if (stack->index > len / 2)
+				stack->above_median = 1;
+		}
+		else
+		{
+			stack->median = 1;
+			stack->above_median = 0;
+		}
 		stack = stack->next;
 	}
 }
 
-// Set median
+/*// Set median
 void	set_median(t_stack *stack)
 {
 	int	len;
@@ -38,23 +53,25 @@ void	set_median(t_stack *stack)
 	while (stack && stack->index < (len / 2))
 	{
 		stack->median = 0;
+		stack->above_median = 0;
 		stack = stack->next;
 	}
 	if (stack)
 	{
 		stack->median = 1;
+		stack->above_median = 0;
 		stack = stack->next;
 	}
 	while (stack)
 	{
 		stack->median = 0;
+		stack->above_median = 1;
 		stack = stack->next;
 	}
-}
+}*/
 
 // Set targert
-
-void	set_target(t_stack *a, t_stack *b)
+void	set_target_a(t_stack *a, t_stack *b)
 {
 	t_stack	*temp_b;
 	t_stack	*target_node;
@@ -95,4 +112,30 @@ t_stack	*max_n(t_stack *stack)
 		stack = stack->next;
 	}
 	return (max);
+}
+
+// Find cost
+void	set_cost(t_stack *stack)
+{
+	if (!stack)
+		return ;
+	if (stack->target->index == 0)
+	{
+		stack->cost = 0;
+		stack = stack->next;
+	}
+	/*else
+	{
+		while(stack)
+		{
+			if (stack->target->above_median == 1)
+			{
+			}
+			else if (stack->target->above_median == 0)
+			{
+			}
+			stack = stack->next;
+		}
+	}
+	*/
 }
