@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:13:02 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/10 17:39:32 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/10 19:23:29 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,6 @@ void	print_index(t_stack *s);
 void	print_median(t_stack *s);
 void	print_above_median(t_stack *s);
 void	print_target(t_stack *s);
+void	print_cost(t_stack *s);
 
 #endif

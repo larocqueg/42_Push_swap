@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 14:11:03 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/10 15:33:50 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/10 19:05:54 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,21 +65,4 @@ long	ft_atolong(const char *str)
 		i++;
 	}
 	return ((sign * num));
-}
-
-void	is_above(t_stack *stack)
-{
-	int	len;
-
-	if (!stack)
-		return ;
-	len = ft_stack_len(stack);
-	while(stack)
-	{
-		if (stack->index < (len / 2))
-			stack->above_median = 0;
-		else
-			stack->above_median = 1;
-		stack = stack->next;
-	}
 }

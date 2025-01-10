@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 19:53:31 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/10 18:22:28 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/10 19:27:37 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,25 +45,13 @@ int	main(int ac, char **av)
 	// Stack_a
 	ft_printf("stack_a->n: ");
 	print_stack(a);
-	ft_printf("stack_a->index: ");
-	print_index(a);
-	ft_printf("stack_a->median: ");
-	print_median(a);
-	ft_printf("stack_a->above_median; ");
-	print_above_median(a);
+	ft_printf("stack_a->cost: ");
+	print_cost(a);
 	ft_printf("stack_a->target: ");
 	print_target(a);
 	// Stack_b
 	ft_printf("stack_b->n: ");
 	print_stack(b);
-	ft_printf("stack_b->index: ");
-	print_index(b);
-	ft_printf("stack_b->median: ");
-	print_median(b);
-	ft_printf("stack_b->above_median; ");
-	print_above_median(b);
-	//ft_printf("stack_b->target: ");
-	//print_target(b);
 	// print end
 	if (ac == 2)
 	{

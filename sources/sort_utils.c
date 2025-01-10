@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 17:50:25 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/10 17:39:13 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/10 19:28:32 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,13 +89,6 @@ t_stack	*max_n(t_stack *stack)
 // Find cost
 void	set_cost(t_stack *stack)
 {
-	if (!stack)
-		return ;
-	if (stack->target->index == 0)
-	{
-		stack->cost = 0;
-		stack = stack->next;
-	}
 }
 
 // Reset index, median, above_median, target and cost
@@ -105,4 +98,6 @@ void	reset_index(t_stack **a, t_stack **b)
 	set_index(*b);
 	set_target_a(*a, *b);
 	//set_target_b(*a, *b);
+	set_cost(*a);
+	//set_cost(*b);
 }
