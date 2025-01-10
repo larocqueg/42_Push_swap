@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 17:50:25 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/10 16:53:35 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/10 17:39:13 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,13 @@ void	set_cost(t_stack *stack)
 		stack->cost = 0;
 		stack = stack->next;
 	}
+}
+
+// Reset index, median, above_median, target and cost
+void	reset_index(t_stack **a, t_stack **b)
+{
+	set_index(*a);
+	set_index(*b);
+	set_target_a(*a, *b);
+	//set_target_b(*a, *b);
 }
