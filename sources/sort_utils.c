@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 17:50:25 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/10 16:14:29 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/10 16:53:35 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,34 +41,6 @@ void	set_index(t_stack *stack)
 		stack = stack->next;
 	}
 }
-
-/*// Set median
-void	set_median(t_stack *stack)
-{
-	int	len;
-
-	if (!stack)
-		return ;
-	len = ft_stack_len(stack);
-	while (stack && stack->index < (len / 2))
-	{
-		stack->median = 0;
-		stack->above_median = 0;
-		stack = stack->next;
-	}
-	if (stack)
-	{
-		stack->median = 1;
-		stack->above_median = 0;
-		stack = stack->next;
-	}
-	while (stack)
-	{
-		stack->median = 0;
-		stack->above_median = 1;
-		stack = stack->next;
-	}
-}*/
 
 // Set targert
 void	set_target_a(t_stack *a, t_stack *b)
@@ -124,18 +96,4 @@ void	set_cost(t_stack *stack)
 		stack->cost = 0;
 		stack = stack->next;
 	}
-	/*else
-	{
-		while(stack)
-		{
-			if (stack->target->above_median == 1)
-			{
-			}
-			else if (stack->target->above_median == 0)
-			{
-			}
-			stack = stack->next;
-		}
-	}
-	*/
 }
