@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:13:02 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/20 10:22:04 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/20 12:11:17 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,15 @@ t_stack	*max_n(t_stack *stack);
 void	set_cost_a(t_stack *a, t_stack *b);
 void	reset_index(t_stack **a, t_stack **b);
 
+// sort_utils_utils.c
+void	set_target_b(t_stack *a, t_stack *b);
+void	set_cost_b(t_stack *a, t_stack *b);
+t_stack	*min_n(t_stack *stack);
+t_stack	*return_cheapest(t_stack *stack);
+
 //free.c
 void	free_stack(t_stack **stack);
-void	ft_free(t_stack **stack, char **arr);
+void	ft_free(t_stack **a, t_stack **b, char **arr, int ac);
 
 // error.c
 int		ft_error(t_stack *a);
@@ -61,6 +67,7 @@ int		doubles(t_stack *stack, int n);
 // init_stack.c
 void	create_nodes(t_stack **stack, int n);
 t_stack	*init_stack_a(t_stack **stack, char **nums, int ac);
+void	push_b_to_a(t_stack **a, t_stack **b);
 
 // swap.c
 void	sa(t_stack **a, int n);
