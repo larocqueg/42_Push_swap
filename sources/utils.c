@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 14:11:03 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/20 09:55:53 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/20 10:33:27 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ void	find_cheapest(t_stack *a)
 			hold = a;
 		a = a->next;
 	}
-	ft_printf("hold == %d\n", hold);
 	a = temp;
 	while (a)
 	{

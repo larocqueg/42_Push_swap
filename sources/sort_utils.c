@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 17:50:25 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/20 10:21:52 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/20 10:59:30 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,11 +105,30 @@ void	set_cost_a(t_stack *a, t_stack *b)
 
 void	reset_index(t_stack **a, t_stack **b)
 {
+
+	ft_printf("a->n: ");
+	print_stack(*a);
+	ft_printf("b->n: ");
+	print_stack(*b);
+
 	set_index(*a);
+	ft_printf("a->index: ");
+	print_index(*a);
 	set_index(*b);
+	ft_printf("b->index: ");
+	print_index(*b);
 	set_target_a(*a, *b);
-	//set_target_b(*a, *b);
+	ft_printf("a->target: ");
+	print_target(*a);
+	set_target_b(*a, *b);
+	ft_printf("b->target: ");
+	print_target(*b);
 	set_cost_a(*a, *b);
+	ft_printf("a->cost: ");
+	print_cost(*a);
+	set_cost_b(*a, *b);
 	find_cheapest(*a);
-	//set_cost(*b);
+	ft_printf("a->cheapest: ");
+	print_cheap(*a);
+	//find_cheapest(*b);
 }

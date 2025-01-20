@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 20:05:22 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/08 21:47:55 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/20 12:16:21 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,17 @@ t_stack	*init_stack_a(t_stack **stack, char **nums, int ac)
 		create_nodes(stack, (int)n);
 	}
 	return (*stack);
+}
+
+void	push_b_to_a(t_stack **a, t_stack **b)
+{
+	size_t	len;
+	t_stack *cheapest;
+
+	len = ft_stack_len(*b);
+	while (len > 0)
+	{
+		reset_index(a, b);
+		cheapest = find_cheapest(*b);
+	}
 }
