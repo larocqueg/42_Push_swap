@@ -6,13 +6,12 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 17:50:25 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/20 09:49:03 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/20 10:12:18 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// Set index, median && above_median
 void	set_index(t_stack *stack)
 {
 	int	n;
@@ -42,7 +41,6 @@ void	set_index(t_stack *stack)
 	}
 }
 
-// Set targert
 void	set_target_a(t_stack *a, t_stack *b)
 {
 	t_stack	*temp_b;
@@ -69,7 +67,6 @@ void	set_target_a(t_stack *a, t_stack *b)
 	}
 }
 
-// Find max number
 t_stack	*max_n(t_stack *stack)
 {
 	t_stack	*max;
@@ -86,7 +83,6 @@ t_stack	*max_n(t_stack *stack)
 	return (max);
 }
 
-// Find cost
 void	set_cost(t_stack *a, t_stack *b)
 {
 	size_t	a_len;
@@ -97,8 +93,8 @@ void	set_cost(t_stack *a, t_stack *b)
 	while (a)
 	{
 		a->cost = a->index;
-		if (a->above_median == 0)
-			a->cost = a_len - (a->index);
+		if (a->above_median == 1)
+			a->cost = a_len - a->index;
 		if (a->target->above_median == 0)
 			a->cost += a->target->index;
 		else
@@ -107,7 +103,6 @@ void	set_cost(t_stack *a, t_stack *b)
 	}
 }
 
-// Reset index, median, above_median, target and cost
 void	reset_index(t_stack **a, t_stack **b)
 {
 	set_index(*a);
