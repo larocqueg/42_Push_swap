@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 20:05:22 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/20 13:39:25 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/20 20:11:53 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,6 @@ t_stack	*init_stack_a(t_stack **stack, char **nums, int ac)
 
 void	push_b_to_a(t_stack **a, t_stack **b)
 {
+	(void)a;
+	(void)b;
 }

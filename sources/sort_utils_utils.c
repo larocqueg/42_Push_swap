@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 10:25:37 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/20 13:28:30 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/20 20:25:32 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	set_target_b(t_stack *a, t_stack *b)
 {
-	t_stack *temp_a;
-	t_stack *target_node;
+	t_stack	*temp_a;
+	t_stack	*target_node;
 
 	if (!a || !b)
 		return ;
@@ -28,7 +28,7 @@ void	set_target_b(t_stack *a, t_stack *b)
 			if ((!target_node || temp_a->n < target_node->n)
 				&& temp_a->n > b->n)
 				target_node = temp_a;
-		temp_a = temp_a->next;
+			temp_a = temp_a->next;
 		}
 		if (!target_node)
 			b->target = min_n(a);
@@ -43,7 +43,7 @@ t_stack	*min_n(t_stack *stack)
 	t_stack	*min;
 
 	min = stack;
-	while(stack)
+	while (stack)
 	{
 		if (stack->n < min->n)
 			min = stack;

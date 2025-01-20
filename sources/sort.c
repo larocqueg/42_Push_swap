@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:21:19 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/20 13:38:42 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/20 20:24:04 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ static void	sort_stacks_utils(t_stack **a, t_stack **b, size_t len)
 
 static void	set_cheapest_to_top(t_stack **a, t_stack *cheapest)
 {
-	while(*a != cheapest)
+	while (*a != cheapest)
 	{
 		if (cheapest->above_median == 0)
 			ra(a, 1);

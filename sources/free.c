@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:38:47 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/20 10:35:46 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/20 20:23:22 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	free_stack(t_stack **stack)
 	*stack = NULL;
 }
 
-void	ft_free(t_stack **a, t_stack **b,  char **arr, int ac)
+void	ft_free(t_stack **a, t_stack **b, char **arr, int ac)
 {
 	int	i;
 

@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 17:50:25 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/20 13:29:21 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/20 20:24:52 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,8 @@ void	reset_index(t_stack **a, t_stack **b)
 	set_index(*a);
 	set_index(*b);
 	set_target_b(*a, *b);
-	set_target_a(*a, *b);	
+	set_target_a(*a, *b);
 	set_cost_a(*a, *b);
 	find_cheapest(*a);
+	print_target(*b);
 }
