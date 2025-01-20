@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:13:02 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/20 12:11:17 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/20 13:28:58 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	reset_index(t_stack **a, t_stack **b);
 
 // sort_utils_utils.c
 void	set_target_b(t_stack *a, t_stack *b);
-void	set_cost_b(t_stack *a, t_stack *b);
 t_stack	*min_n(t_stack *stack);
 t_stack	*return_cheapest(t_stack *stack);
 

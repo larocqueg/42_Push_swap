@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 10:25:37 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/20 11:45:47 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/20 13:28:30 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,6 @@ void	set_target_b(t_stack *a, t_stack *b)
 			b->target = target_node;
 		b = b->next;
 	}
-}
-
-void	set_cost_b(t_stack *a, t_stack *b)
-{
-	(void)a;
-	(void)b;
 }
 
 t_stack	*min_n(t_stack *stack)
