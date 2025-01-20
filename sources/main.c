@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 19:53:31 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/10 19:27:37 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/20 09:46:08 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int	main(int ac, char **av)
 	print_stack(a);
 	ft_printf("stack_a->cost: ");
 	print_cost(a);
+	ft_printf("stack_a->cheapest: ");
+	print_cheap(a);
 	ft_printf("stack_a->target: ");
 	print_target(a);
 	// Stack_b

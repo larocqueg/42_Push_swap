@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 14:11:03 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/10 19:05:54 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/20 09:55:53 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,31 @@ long	ft_atolong(const char *str)
 		i++;
 	}
 	return ((sign * num));
+}
+
+void	find_cheapest(t_stack *a)
+{
+	t_stack	*hold;
+	t_stack	*temp;
+
+	hold = a;
+	temp = a;
+	while (a)
+	{
+		if (a->next == NULL)
+			break ;
+		if (a->cost < a->next->cost && a->cost < hold->cost)
+			hold = a;
+		a = a->next;
+	}
+	ft_printf("hold == %d\n", hold);
+	a = temp;
+	while (a)
+	{
+		if (a->index == hold->index)
+			a->cheapest = 1;
+		else
+			a->cheapest = 0;
+		a = a->next;
+	}
 }

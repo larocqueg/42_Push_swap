@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:13:02 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/10 19:23:29 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/20 09:46:39 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,13 @@ size_t	ft_stack_len(t_stack *stack);
 t_stack	*ft_last(t_stack *stack);
 void	check_2(t_stack **stack);
 long	ft_atolong(const char *str);
+void	find_cheapest(t_stack *a);
 
 // sort_utils.c
 void	set_index(t_stack *stack);
 void	set_target_a(t_stack *a, t_stack *b);
 t_stack	*max_n(t_stack *stack);
-void	set_cost(t_stack *stack);
+void	set_cost(t_stack *a, t_stack *b);
 void	reset_index(t_stack **a, t_stack **b);
 
 //free.c
@@ -87,5 +88,6 @@ void	print_median(t_stack *s);
 void	print_above_median(t_stack *s);
 void	print_target(t_stack *s);
 void	print_cost(t_stack *s);
+void	print_cheap(t_stack *s);
 
 #endif

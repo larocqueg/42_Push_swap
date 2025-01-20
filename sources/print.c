@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 20:20:14 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/10 19:23:46 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/20 09:44:20 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,26 @@ void	print_cost(t_stack *s)
 	while (s)
 	{
 		ft_printf("%d ", s->cost);
+		s = s->next;
+		print++;
+	}
+	if (print > 0)
+		ft_printf("\n");
+}
+
+void	print_cheap(t_stack *s)
+{
+	int	print;
+
+	if (!s)
+	{
+		ft_printf("(NULL)\n");
+		return ;
+	}
+	print = 0;
+	while (s)
+	{
+		ft_printf("%d ", s->cheapest);
 		s = s->next;
 		print++;
 	}
