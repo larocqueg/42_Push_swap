@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:13:02 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/20 09:46:39 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/20 10:22:04 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	find_cheapest(t_stack *a);
 void	set_index(t_stack *stack);
 void	set_target_a(t_stack *a, t_stack *b);
 t_stack	*max_n(t_stack *stack);
-void	set_cost(t_stack *a, t_stack *b);
+void	set_cost_a(t_stack *a, t_stack *b);
 void	reset_index(t_stack **a, t_stack **b);
 
 //free.c
