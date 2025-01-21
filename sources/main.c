@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 19:53:31 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/21 16:30:16 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/21 16:40:19 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	main(int ac, char **av)
 		else
 			ft_sort_stacks(&a, &b);
 	}
-	print_stack(a);
 	ft_free(&a, &b, av, ac);
 	return (0);
 }
