@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 20:05:22 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/21 16:45:26 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/21 18:28:17 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,26 @@ void	lower_on_top(t_stack **a)
 			ra(a, 1);
 		else
 			rra(a, 1);
+	}
+}
+
+void	set_cheapest_to_top(t_stack **stack, t_stack *node, int checker)
+{
+	while (*stack != node)
+	{
+		if (checker == 1)
+		{
+			if (node->above_median == 0)
+				ra(stack, 1);
+			else
+				rra(stack, 1);
+		}
+		else if (checker == 2)
+		{
+			if (node->above_median == 0)
+				rb(stack, 1);
+			else
+				rrb(stack, 1);
+		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 17:50:25 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/20 23:57:56 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/21 18:53:23 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ t_stack	*max_n(t_stack *stack)
 	return (max);
 }
 
-void	set_cost_a(t_stack *a, t_stack *b)
+void	set_cost(t_stack *a, t_stack *b)
 {
 	size_t	a_len;
 	size_t	b_len;
@@ -94,9 +94,10 @@ void	set_cost_a(t_stack *a, t_stack *b)
 	b_len = ft_stack_len(b);
 	while (a)
 	{
-		a->cost = a->index;
 		if (a->above_median == 1)
 			a->cost = a_len - a->index;
+		else
+			a->cost = a->index;
 		if (a->target->above_median == 0)
 			a->cost += a->target->index;
 		else
@@ -109,8 +110,10 @@ void	reset_index(t_stack **a, t_stack **b)
 {
 	set_index(*a);
 	set_index(*b);
-	set_target_b(*a, *b);
 	set_target_a(*a, *b);
-	set_cost_a(*a, *b);
+	set_target_b(*a, *b);
+	set_cost(*a, *b);
+	set_cost(*b, *a);
 	find_cheapest(*a);
+	find_cheapest(*b);
 }
