@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:13:02 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/21 19:19:02 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/21 19:38:16 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,13 @@ t_stack	*find_cheapest(t_stack **stack);
 void	set_index(t_stack *stack);
 void	set_target_a(t_stack *a, t_stack *b);
 t_stack	*max_n(t_stack *stack);
-void	set_cost_a(t_stack *a, t_stack *b);
-void	set_cost_b(t_stack *a, t_stack *b);
 void	reset_index(t_stack **a, t_stack **b);
 
 // sort_utils_utils.c
 void	set_target_b(t_stack *a, t_stack *b);
 t_stack	*min_n(t_stack *stack);
 t_stack	*return_cheapest(t_stack *stack);
+void	push_b_to_a(t_stack **a, t_stack **b);
 
 //free.c
 void	free_stack(t_stack **stack);
@@ -68,7 +67,6 @@ int		doubles(t_stack *stack, int n);
 // init_stack.c
 void	create_nodes(t_stack **stack, int n);
 t_stack	*init_stack_a(t_stack **stack, char **nums, int ac);
-void	push_b_to_a(t_stack **a, t_stack **b);
 void	lower_on_top(t_stack **a);
 
 // swap.c

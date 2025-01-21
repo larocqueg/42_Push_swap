@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 17:50:25 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/21 19:15:11 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/21 19:35:25 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,19 +106,19 @@ static void	init_stack_cost(t_stack **stack)
 	i = 0;
 	while (head)
 	{
-		if (head -> index <= (size / 2))
+		if (head->index <= (size / 2))
 		{
-			head -> cost = head -> index;
-			head -> above_median = 0;
+			head->cost = head->index;
+			head->above_median = 0;
 		}
 		else
 		{
-			head -> above_median = 1;
+			head->above_median = 1;
 			if (size % 2 == 0)
 				head->cost = head->index - (head->index - (size / 2) + ++i);
 			else
 				head->cost = head->index - (head->index - (size / 2) + i++);
 		}
-		head = head -> next;
+		head = head->next;
 	}
 }

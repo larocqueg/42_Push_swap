@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 14:11:03 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/21 18:54:10 by rafaelfe         ###   ########.fr       */
+/*   Updated: 2025/01/21 19:34:01 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,11 @@ t_stack	*find_cheapest(t_stack **stack)
 	{
 		if (!cheapest)
 			cheapest = head;
-		else if ((head -> cost + head -> target -> cost)
-			< (cheapest -> cost + cheapest -> target -> cost))
+		else if ((head->cost + head->target->cost)
+			< (cheapest->cost + cheapest->target->cost))
 			cheapest = head;
 		head = head -> next;
 	}
-	cheapest -> cheapest = 1;
+	cheapest->cheapest = 1;
 	return (cheapest);
 }
