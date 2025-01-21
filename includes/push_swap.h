@@ -89,13 +89,4 @@ void	rra(t_stack **a, int n);
 void	rrb(t_stack **b, int n);
 void	rrr(t_stack **a, t_stack **b, int n);
 
-// print.c
-void	print_stack(t_stack *s);
-void	print_index(t_stack *s);
-void	print_median(t_stack *s);
-void	print_above_median(t_stack *s);
-void	print_target(t_stack *s);
-void	print_cost(t_stack *s);
-void	print_cheap(t_stack *s);
-
 #endif

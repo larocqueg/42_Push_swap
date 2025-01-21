@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 20:05:22 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/21 00:15:00 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/21 16:45:26 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	push_b_to_a(t_stack **a, t_stack **b)
 
 void	lower_on_top(t_stack **a)
 {
-	while((*a)->n != min_n(*a)->n)
+	while ((*a)->n != min_n(*a)->n)
 	{
 		if (min_n(*a)->above_median == 0)
 			ra(a, 1);

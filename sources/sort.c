@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:21:19 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/21 16:19:49 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/21 16:47:33 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,12 @@ static void	sort_stacks_utils(t_stack **a, t_stack **b, size_t len)
 {
 	t_stack	*cheapest;
 
-	while ((*a) -> next -> next -> next)
+	while ((*a)->next->next->next)
 	{
 		reset_index(a, b);
 		cheapest = return_cheapest(*a);
-		while ((*a != cheapest && *b != cheapest -> target) &&
-			cheapest -> above_median == cheapest -> target -> above_median)
+		while ((*a != cheapest && *b != cheapest->target)
+			&& cheapest->above_median == cheapest->target->above_median)
 		{
 			if (cheapest->above_median == 0
 				&& cheapest->target->above_median == 0)
@@ -102,7 +102,7 @@ static void	sort_stacks_utils(t_stack **a, t_stack **b, size_t len)
 	reset_index(a, b);
 }
 
-void	set_cheapest_to_top(t_stack **stack, t_stack *node, int	checker)
+void	set_cheapest_to_top(t_stack **stack, t_stack *node, int checker)
 {
 	while (*stack != node)
 	{
