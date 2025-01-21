@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:13:02 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/21 00:15:16 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/21 18:54:52 by rafaelfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,14 @@ size_t	ft_stack_len(t_stack *stack);
 t_stack	*ft_last(t_stack *stack);
 void	check_2(t_stack **stack);
 long	ft_atolong(const char *str);
-void	find_cheapest(t_stack *a);
+t_stack	*find_cheapest(t_stack **stack);
 
 // sort_utils.c
 void	set_index(t_stack *stack);
 void	set_target_a(t_stack *a, t_stack *b);
 t_stack	*max_n(t_stack *stack);
 void	set_cost_a(t_stack *a, t_stack *b);
+void set_cost_b(t_stack *a, t_stack *b);
 void	reset_index(t_stack **a, t_stack **b);
 
 // sort_utils_utils.c

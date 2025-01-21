@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:21:19 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/21 16:10:49 by rafaelfe         ###   ########.fr       */
+/*   Updated: 2025/01/21 18:57:30 by rafaelfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,7 @@ void	ft_sort_stacks(t_stack **a, t_stack **b)
 		count--;
 	}
 	sort_stacks_utils(a, b, len);
-	while (*b)
-	{
-		reset_index(a, b);
-		push_b_to_a(a, b);
-	}
+	push_b_to_a(a, b);
 	reset_index(a, b);
 	lower_on_top(a);
 }
@@ -80,9 +76,9 @@ static void	sort_stacks_utils(t_stack **a, t_stack **b, size_t len)
 	t_stack	*cheapest;
 
 	while ((*a) -> next -> next -> next)
-	{
-		reset_index(a, b);
-		cheapest = return_cheapest(*a);
+	{	reset_index(a, b);
+		set_target_a(*a, *b);
+		cheapest = find_cheapest(a);
 		while ((*a != cheapest && *b != cheapest -> target) &&
 			cheapest -> above_median == cheapest -> target -> above_median)
 		{
@@ -98,7 +94,6 @@ static void	sort_stacks_utils(t_stack **a, t_stack **b, size_t len)
 		pb(a, b, 1);
 		len--;
 	}
-	ft_printf("chegou aqui!");
 	ft_sort_three(a);
 	reset_index(a, b);
 }

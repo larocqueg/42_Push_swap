@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 14:11:03 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/20 10:33:27 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/21 18:54:10 by rafaelfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,28 +67,22 @@ long	ft_atolong(const char *str)
 	return ((sign * num));
 }
 
-void	find_cheapest(t_stack *a)
+t_stack	*find_cheapest(t_stack **stack)
 {
-	t_stack	*hold;
-	t_stack	*temp;
+	t_stack	*head;
+	t_stack	*cheapest;
 
-	hold = a;
-	temp = a;
-	while (a)
+	cheapest = NULL;
+	head = *stack;
+	while (head)
 	{
-		if (a->next == NULL)
-			break ;
-		if (a->cost < a->next->cost && a->cost < hold->cost)
-			hold = a;
-		a = a->next;
+		if (!cheapest)
+			cheapest = head;
+		else if ((head -> cost + head -> target -> cost)
+			< (cheapest -> cost + cheapest -> target -> cost))
+			cheapest = head;
+		head = head -> next;
 	}
-	a = temp;
-	while (a)
-	{
-		if (a->index == hold->index)
-			a->cheapest = 1;
-		else
-			a->cheapest = 0;
-		a = a->next;
-	}
+	cheapest -> cheapest = 1;
+	return (cheapest);
 }
