@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:21:19 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/21 00:13:29 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/21 16:10:49 by rafaelfe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,21 +79,26 @@ static void	sort_stacks_utils(t_stack **a, t_stack **b, size_t len)
 {
 	t_stack	*cheapest;
 
-	while (len > 3)
+	while ((*a) -> next -> next -> next)
 	{
 		reset_index(a, b);
 		cheapest = return_cheapest(*a);
-		if (cheapest->above_median == 0
-			&& cheapest->target->above_median == 0)
-			rr(a, b, 1);
-		else if (cheapest->above_median == 1
-			&& cheapest->target->above_median == 1)
-			rrr(a, b, 1);
+		while ((*a != cheapest && *b != cheapest -> target) &&
+			cheapest -> above_median == cheapest -> target -> above_median)
+		{
+			if (cheapest->above_median == 0
+				&& cheapest->target->above_median == 0)
+				rr(a, b, 1);
+			else if (cheapest->above_median == 1
+				&& cheapest->target->above_median == 1)
+				rrr(a, b, 1);
+		}
 		set_cheapest_to_top(a, cheapest, 1);
 		set_cheapest_to_top(b, cheapest->target, 2);
 		pb(a, b, 1);
 		len--;
 	}
+	ft_printf("chegou aqui!");
 	ft_sort_three(a);
 	reset_index(a, b);
 }
