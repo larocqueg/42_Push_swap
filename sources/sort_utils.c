@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 17:50:25 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/21 18:53:23 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/21 19:15:11 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+static void	init_stack_cost(t_stack **stack);
 
 void	set_index(t_stack *stack)
 {
@@ -83,37 +85,40 @@ t_stack	*max_n(t_stack *stack)
 	return (max);
 }
 
-void	set_cost(t_stack *a, t_stack *b)
-{
-	size_t	a_len;
-	size_t	b_len;
-
-	if (!a || !b)
-		return ;
-	a_len = ft_stack_len(a);
-	b_len = ft_stack_len(b);
-	while (a)
-	{
-		if (a->above_median == 1)
-			a->cost = a_len - a->index;
-		else
-			a->cost = a->index;
-		if (a->target->above_median == 0)
-			a->cost += a->target->index;
-		else
-			a->cost += b_len - (a->target->index);
-		a = a->next;
-	}
-}
-
 void	reset_index(t_stack **a, t_stack **b)
 {
 	set_index(*a);
-	set_index(*b);
-	set_target_a(*a, *b);
-	set_target_b(*a, *b);
-	set_cost(*a, *b);
-	set_cost(*b, *a);
-	find_cheapest(*a);
-	find_cheapest(*b);
+	if (*b && b)
+		set_index(*b);
+	init_stack_cost(a);
+	if (*b && b)
+		init_stack_cost(b);
+}
+
+static void	init_stack_cost(t_stack **stack)
+{
+	t_stack	*head;
+	int		i;
+	int		size;
+
+	size = ft_stack_len(*stack);
+	head = *stack;
+	i = 0;
+	while (head)
+	{
+		if (head -> index <= (size / 2))
+		{
+			head -> cost = head -> index;
+			head -> above_median = 0;
+		}
+		else
+		{
+			head -> above_median = 1;
+			if (size % 2 == 0)
+				head->cost = head->index - (head->index - (size / 2) + ++i);
+			else
+				head->cost = head->index - (head->index - (size / 2) + i++);
+		}
+		head = head -> next;
+	}
 }

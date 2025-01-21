@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 10:25:37 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/20 20:25:32 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/21 19:16:37 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ t_stack	*min_n(t_stack *stack)
 
 t_stack	*return_cheapest(t_stack *stack)
 {
+	if (stack && !(stack)->next)
+		return (stack);
 	while (stack)
 	{
 		if (stack->cheapest == 1)
@@ -61,4 +63,29 @@ t_stack	*return_cheapest(t_stack *stack)
 		stack = stack->next;
 	}
 	return (NULL);
+}
+
+void	push_b_to_a(t_stack **a, t_stack **b)
+{
+	t_stack	*cheapest;
+
+	while ((*b))
+	{
+		reset_index(a, b);
+		set_target_b(*a, *b);
+		cheapest = find_cheapest(b);
+		while ((*b != cheapest && *a != cheapest->target)
+			&& cheapest->above_median == cheapest->target->above_median)
+		{
+			if (cheapest->above_median == 0
+				&& cheapest->target->above_median == 0)
+				rr(a, b, 1);
+			else if (cheapest->above_median == 1
+				&& cheapest->target->above_median == 1)
+				rrr(a, b, 1);
+		}
+		set_cheapest_to_top(b, cheapest, 2);
+		set_cheapest_to_top(a, cheapest->target, 1);
+		pa(a, b, 1);
+	}
 }

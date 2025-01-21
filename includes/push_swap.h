@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:13:02 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/21 18:47:26 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/21 19:19:02 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,21 @@ typedef struct s_stack
 int		ft_sorted(t_stack *stack);
 void	ft_sort_three(t_stack **s);
 void	ft_sort_stacks(t_stack **a, t_stack **b);
+void	set_cheapest_to_top(t_stack **stack, t_stack *node, int checker);
 
 // utils.c
 size_t	ft_stack_len(t_stack *stack);
 t_stack	*ft_last(t_stack *stack);
 void	check_2(t_stack **stack);
 long	ft_atolong(const char *str);
-void	find_cheapest(t_stack *a);
+t_stack	*find_cheapest(t_stack **stack);
 
 // sort_utils.c
 void	set_index(t_stack *stack);
 void	set_target_a(t_stack *a, t_stack *b);
 t_stack	*max_n(t_stack *stack);
-void	set_cost(t_stack *a, t_stack *b);
+void	set_cost_a(t_stack *a, t_stack *b);
+void	set_cost_b(t_stack *a, t_stack *b);
 void	reset_index(t_stack **a, t_stack **b);
 
 // sort_utils_utils.c
@@ -68,7 +70,6 @@ void	create_nodes(t_stack **stack, int n);
 t_stack	*init_stack_a(t_stack **stack, char **nums, int ac);
 void	push_b_to_a(t_stack **a, t_stack **b);
 void	lower_on_top(t_stack **a);
-void	set_cheapest_to_top(t_stack **stack, t_stack *node, int checker);
 
 // swap.c
 void	sa(t_stack **a, int n);

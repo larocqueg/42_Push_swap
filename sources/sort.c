@@ -6,14 +6,13 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:21:19 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/21 18:53:43 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/21 19:13:48 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 static void	sort_stacks_utils(t_stack **a, t_stack **b, size_t len);
-static void	sort_stacks_utils_utils(t_stack **a, t_stack **b);
 
 int	ft_sorted(t_stack *stack)
 {
@@ -67,7 +66,7 @@ void	ft_sort_stacks(t_stack **a, t_stack **b)
 		count--;
 	}
 	sort_stacks_utils(a, b, len);
-	sort_stacks_utils_utils(a, b);
+	push_b_to_a(a, b);
 	reset_index(a, b);
 	lower_on_top(a);
 }
@@ -79,8 +78,9 @@ static void	sort_stacks_utils(t_stack **a, t_stack **b, size_t len)
 	while ((*a)->next->next->next)
 	{
 		reset_index(a, b);
-		cheapest = return_cheapest(*a);
-		while ((*a != cheapest && *b != cheapest->target)
+		set_target_a(*a, *b);
+		cheapest = find_cheapest(a);
+		while ((*a != cheapest && *b != cheapest -> target)
 			&& cheapest->above_median == cheapest->target->above_median)
 		{
 			if (cheapest->above_median == 0
@@ -99,26 +99,23 @@ static void	sort_stacks_utils(t_stack **a, t_stack **b, size_t len)
 	reset_index(a, b);
 }
 
-static void	sort_stacks_utils_utils(t_stack **a, t_stack **b)
+void	set_cheapest_to_top(t_stack **stack, t_stack *node, int checker)
 {
-	t_stack	*cheapest;
-
-	while (*b)
+	while (*stack != node)
 	{
-		reset_index(a, b);
-		cheapest = return_cheapest(*b);
-		while ((*b != cheapest && *a != cheapest->target)
-			&& cheapest->above_median == cheapest->target->above_median)
+		if (checker == 1)
 		{
-			if (cheapest->above_median == 0
-				&& cheapest->target->above_median == 0)
-				rr(a, b, 1);
-			else if (cheapest->above_median == 1
-				&& cheapest->target->above_median == 1)
-				rrr(a, b, 1);
+			if (node->above_median == 0)
+				ra(stack, 1);
+			else
+				rra(stack, 1);
 		}
-		set_cheapest_to_top(b, cheapest, 2);
-		set_cheapest_to_top(a, cheapest->target, 1);
-		pa(a, b, 1);
+		else if (checker == 2)
+		{
+			if (node->above_median == 0)
+				rb(stack, 1);
+			else
+				rrb(stack, 1);
+		}
 	}
 }
