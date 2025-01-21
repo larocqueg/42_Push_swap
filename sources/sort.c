@@ -6,14 +6,13 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 16:21:19 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/20 20:24:04 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/21 00:13:29 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 static void	sort_stacks_utils(t_stack **a, t_stack **b, size_t len);
-static void	set_cheapest_to_top(t_stack **a, t_stack *cheapest);
 
 int	ft_sorted(t_stack *stack)
 {
@@ -67,7 +66,13 @@ void	ft_sort_stacks(t_stack **a, t_stack **b)
 		count--;
 	}
 	sort_stacks_utils(a, b, len);
-	push_b_to_a(a, b);
+	while (*b)
+	{
+		reset_index(a, b);
+		push_b_to_a(a, b);
+	}
+	reset_index(a, b);
+	lower_on_top(a);
 }
 
 static void	sort_stacks_utils(t_stack **a, t_stack **b, size_t len)
@@ -84,8 +89,8 @@ static void	sort_stacks_utils(t_stack **a, t_stack **b, size_t len)
 		else if (cheapest->above_median == 1
 			&& cheapest->target->above_median == 1)
 			rrr(a, b, 1);
-		set_cheapest_to_top(a, cheapest);
-		set_cheapest_to_top(b, cheapest->target);
+		set_cheapest_to_top(a, cheapest, 1);
+		set_cheapest_to_top(b, cheapest->target, 2);
 		pb(a, b, 1);
 		len--;
 	}
@@ -93,13 +98,23 @@ static void	sort_stacks_utils(t_stack **a, t_stack **b, size_t len)
 	reset_index(a, b);
 }
 
-static void	set_cheapest_to_top(t_stack **a, t_stack *cheapest)
+void	set_cheapest_to_top(t_stack **stack, t_stack *node, int	checker)
 {
-	while (*a != cheapest)
+	while (*stack != node)
 	{
-		if (cheapest->above_median == 0)
-			ra(a, 1);
-		else
-			rra(a, 1);
+		if (checker == 1)
+		{
+			if (node->above_median == 0)
+				ra(stack, 1);
+			else
+				rra(stack, 1);
+		}
+		else if (checker == 2)
+		{
+			if (node->above_median == 0)
+				rb(stack, 1);
+			else
+				rrb(stack, 1);
+		}
 	}
 }

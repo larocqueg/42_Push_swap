@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 20:05:22 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/20 20:11:53 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/21 00:15:00 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,17 @@ t_stack	*init_stack_a(t_stack **stack, char **nums, int ac)
 
 void	push_b_to_a(t_stack **a, t_stack **b)
 {
-	(void)a;
-	(void)b;
+	set_cheapest_to_top(a, (*b)->target, 1);
+	pa(a, b, 1);
+}
+
+void	lower_on_top(t_stack **a)
+{
+	while((*a)->n != min_n(*a)->n)
+	{
+		if (min_n(*a)->above_median == 0)
+			ra(a, 1);
+		else
+			rra(a, 1);
+	}
 }
