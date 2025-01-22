@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 14:11:03 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/21 19:34:01 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:11:09 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,6 @@ t_stack	*ft_last(t_stack *stack)
 	return (stack);
 }
 
-void	check_2(t_stack **stack)
-{
-	if ((*stack)->n > (*stack)->next->n)
-		sa(stack, 1);
-}
-
 long	ft_atolong(const char *str)
 {
 	int		i;
@@ -67,21 +61,35 @@ long	ft_atolong(const char *str)
 	return ((sign * num));
 }
 
+static int	ret_max(int n1, int n2)
+{
+	if (n1 > n2)
+		return (n1);
+	else if (n1 < n2)
+		return (n2);
+	else
+		return (n1);
+}
+
 t_stack	*find_cheapest(t_stack **stack)
 {
-	t_stack	*head;
+	t_stack	*temp;
 	t_stack	*cheapest;
 
 	cheapest = NULL;
-	head = *stack;
-	while (head)
+	temp = *stack;
+	while (temp)
 	{
+		temp->push_cost = 0;
+		if (temp->above_median == temp->target->above_median)
+			temp->push_cost = ret_max(temp->cost, temp->target->cost);
+		else
+			temp->push_cost = temp->cost + temp->target->cost;
 		if (!cheapest)
-			cheapest = head;
-		else if ((head->cost + head->target->cost)
-			< (cheapest->cost + cheapest->target->cost))
-			cheapest = head;
-		head = head -> next;
+			cheapest = temp;
+		else if (temp->push_cost < cheapest->push_cost)
+			cheapest = temp;
+		temp = temp->next;
 	}
 	cheapest->cheapest = 1;
 	return (cheapest);

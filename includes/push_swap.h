@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:13:02 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/21 19:38:16 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:09:58 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_stack
 	int				n; // refers to the value
 	int				index; // position of n
 	int				cost; // push cost
+	int				push_cost;
 	int				median; // defines the median
 	int				above_median; // is above of median?
 	int				cheapest; // is the cheapest cost?
@@ -39,7 +40,6 @@ void	set_cheapest_to_top(t_stack **stack, t_stack *node, int checker);
 // utils.c
 size_t	ft_stack_len(t_stack *stack);
 t_stack	*ft_last(t_stack *stack);
-void	check_2(t_stack **stack);
 long	ft_atolong(const char *str);
 t_stack	*find_cheapest(t_stack **stack);
 
@@ -54,6 +54,7 @@ void	set_target_b(t_stack *a, t_stack *b);
 t_stack	*min_n(t_stack *stack);
 t_stack	*return_cheapest(t_stack *stack);
 void	push_b_to_a(t_stack **a, t_stack **b);
+void	check_2(t_stack **stack);
 
 //free.c
 void	free_stack(t_stack **stack);

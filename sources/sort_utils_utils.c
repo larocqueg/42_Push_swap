@@ -6,7 +6,7 @@
 /*   By: rafaelfe <rafaelfe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 10:25:37 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/21 19:16:37 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:09:48 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,10 @@ void	push_b_to_a(t_stack **a, t_stack **b)
 		set_cheapest_to_top(a, cheapest->target, 1);
 		pa(a, b, 1);
 	}
+}
+
+void	check_2(t_stack **stack)
+{
+	if ((*stack)->n > (*stack)->next->n)
+		sa(stack, 1);
 }
