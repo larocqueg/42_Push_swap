@@ -16,12 +16,15 @@ ft_strlcpy.c ft_strlen.c ft_strnstr.c ft_strncmp.c ft_tolower.c ft_toupper.c ft_
 ft_substr.c ft_strjoin.c ft_memmove.c ft_strtrim.c ft_putchar_fd.c ft_putstr_fd.c ft_putnbr_fd.c \
 ft_putendl_fd.c ft_striteri.c ft_itoa.c ft_split.c ft_strmapi.c
 
+GNL_SRCS = ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c
+
 BONUS_SRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
 ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
 # Object files
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+GNL_OBJS = $(GNL_SRCS:.c=.o)
 
 # all rule
 all: $(NAME)
@@ -31,12 +34,8 @@ all: $(NAME)
 # r tells ar to  insert OBJS into the libft.a, if it already exists it will replace same name files
 # c tells ar to create the archive if it does not exist
 # s creats a index for each function in libft.a
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
-
-#compiles the bonus
-bonus: $(NAME) $(BONUS_OBJS)
-	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+$(NAME): $(OBJS) $(BONUS_OBJS) $(GNL_OBJS)
+	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS) $(GNL_OBJS)
 
 # Compile the object files
 %.o: %.c
@@ -44,7 +43,7 @@ bonus: $(NAME) $(BONUS_OBJS)
 
 # clean rule removes .o from srcs
 clean:
-	rm -rf $(OBJS) $(BONUS_OBJS)
+	rm -rf $(OBJS) $(BONUS_OBJS) $(GNL_OBJS)
 
 # fclean rule runs clean then removes libft.a
 fclean: clean 

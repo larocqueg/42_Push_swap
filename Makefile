@@ -6,7 +6,7 @@
 #    By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/27 13:56:33 by gde-la-r          #+#    #+#              #
-#    Updated: 2025/01/21 19:20:26 by gde-la-r         ###   ########.fr        #
+#    Updated: 2025/01/23 16:50:25 by gde-la-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ $(NAME): $(OBJ) $(LIBFT) $(FT_PRINTF)
 
 # Build libft
 $(LIBFT):
-	make bonus -C $(LIBFT_DIR)
+	make -C $(LIBFT_DIR)
 
 # Build ft_printf
 $(FT_PRINTF):
