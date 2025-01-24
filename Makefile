@@ -27,52 +27,44 @@ SRCS = $(COMMANDS_DIR)/swap.c \
        $(PW_DIR)/sort_utils_utils.c
 
 BONUS = ./bonus/bonus.c
-MAIN = ./sources/main.c  # Explicitly define main.c for push_swap
+MAIN = ./sources/main.c
 
 # Objects, libft, and ft_printf inclusion
 OBJ = $(SRCS:.c=.o)
 BONUS_OBJ = $(BONUS:.c=.o)
-MAIN_OBJ = $(MAIN:.c=.o)  # Object for main.c
+MAIN_OBJ = $(MAIN:.c=.o)
 LIBFT = $(LIBFT_DIR)/libft.a
 FT_PRINTF = $(FT_PRINTF_DIR)/libftprintf.a
 
-# Default rule (build push_swap)
 all: $(NAME_PUSH_SWAP)
 
-# Build push_swap executable (with main.o)
 $(NAME_PUSH_SWAP): $(OBJ) $(MAIN_OBJ) $(LIBFT) $(FT_PRINTF)
 	$(CC) $(FLAGS) -I $(INCLUDES) $(OBJ) $(MAIN_OBJ) -L $(LIBFT_DIR) -lft -L $(FT_PRINTF_DIR) -lftprintf -o $(NAME_PUSH_SWAP)
 
-# Build bonus executable (using bonus.o and bonus.c)
-bonus: $(OBJ) $(BONUS_OBJ) $(LIBFT) $(FT_PRINTF)
+bonus: $(NAME_BONUS)
+
+$(NAME_BONUS): $(OBJ) $(BONUS_OBJ) $(LIBFT) $(FT_PRINTF)
 	$(CC) $(FLAGS) -I $(INCLUDES) -I ./bonus $(OBJ) $(BONUS_OBJ) -L $(LIBFT_DIR) -lft -L $(FT_PRINTF_DIR) -lftprintf -o $(NAME_BONUS)
 
-# Build libft
 $(LIBFT):
 	make -C $(LIBFT_DIR)
 
-# Build ft_printf
 $(FT_PRINTF):
 	make -C $(FT_PRINTF_DIR)
 
-# Compile object files for main, bonus, and other sources
 %.o: %.c
 	$(CC) $(FLAGS) -I $(INCLUDES) -I ./bonus -c $< -o $@
 
-# Clean object files
 clean:
 	rm -rf $(OBJ) $(BONUS_OBJ) $(MAIN_OBJ)
 	make clean -C $(LIBFT_DIR)
 	make clean -C $(FT_PRINTF_DIR)
 
-# Full clean
 fclean: clean
 	rm -rf $(NAME_PUSH_SWAP) $(NAME_BONUS)
 	make fclean -C $(LIBFT_DIR)
 	make fclean -C $(FT_PRINTF_DIR)
 
-# Rebuild everything
 re: fclean all
 
-# Avoid name clashes
 .PHONY: all clean fclean re bonus
