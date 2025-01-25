@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:07:46 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/24 21:50:02 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/25 14:50:51 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,14 @@ int	main(int ac, char **av)
 		return (-1);
 	else if (ac == 2)
 		av = ft_split(av[1], ' ');
+	if (!av[1])
+		return (ft_printf("Error\n"));
 	a = init_stack_a(&a, av, ac);
 	if (a == NULL)
 		return (-1);
 	if (!ft_sorted(a))
-		gnl(&a, &b);
+		if (gnl(&a, &b) == -1)
+			return (-1);
 	if (ft_sorted(a) == 1)
 		ft_printf("OK\n");
 	else
@@ -50,7 +53,7 @@ static int	gnl(t_stack **a, t_stack **b)
 	{
 		check = do_ops(a, b, line);
 		free(line);
-		if (check == -1)
+		if (check == 3)
 			return (-1);
 		line = get_next_line(0);
 	}
