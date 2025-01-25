@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/01/25 15:35:43 by gde-la-r          #+#    #+#              #
+#    Updated: 2025/01/25 15:35:43 by gde-la-r         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 # Name of the executables
 NAME_PUSH_SWAP = push_swap
 NAME_BONUS = checker
@@ -59,7 +71,7 @@ define loading_bar_red
 		sleep 0.01; \
 		printf "\r$(RED)$(1): %d%%$(RESET)" $$i; \
 	done; \
-	echo "$(GREEN)\r$(1): 100% Done!$(RESET)"
+	echo "$(RED)\r$(1): 100% Done!$(RESET)"
 endef
 
 all: $(NAME_PUSH_SWAP)
