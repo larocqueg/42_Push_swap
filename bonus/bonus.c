@@ -6,12 +6,13 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:07:46 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/25 18:44:51 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/25 20:07:45 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+static int	check_spaces(char **av);
 static int	gnl(t_stack **a, t_stack **b);
 static int	do_ops(t_stack **a, t_stack **b, char *line);
 
@@ -24,8 +25,12 @@ int	main(int ac, char **av)
 	b = NULL;
 	if (ac == 1 || (ac >= 2 && !av[1][0]))
 		return (ft_printf("Error\n"));
+	if (check_spaces(&av[1]) == 1)
+		return (ft_printf("Error\n"));
 	else if (ac == 2)
 		av = ft_split(av[1], ' ');
+	if (!av || !av[0])
+		ft_printf("Error\n");
 	a = init_stack_a(&a, av, ac);
 	if (!a)
 		return (-1);
@@ -82,4 +87,24 @@ static int	do_ops(t_stack **a, t_stack **b, char *line)
 	else
 		return (-1);
 	return (0);
+}
+
+static int	check_spaces(char **av)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	j = 0;
+	while (av[i])
+	{
+		while (av[i][j])
+		{
+			if (av[i][j] != ' ')
+				return (0);
+			i++;
+		}
+		i++;
+	}
+	return (1);
 }
