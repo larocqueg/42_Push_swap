@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:07:46 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/25 14:50:51 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/25 18:44:51 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,18 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
-	if (ac == 1 || (ac == 2 && !av[1][0]))
-		return (-1);
+	if (ac == 1 || (ac >= 2 && !av[1][0]))
+		return (ft_printf("Error\n"));
 	else if (ac == 2)
 		av = ft_split(av[1], ' ');
-	if (!av[1])
-		return (ft_printf("Error\n"));
 	a = init_stack_a(&a, av, ac);
-	if (a == NULL)
+	if (!a)
 		return (-1);
 	if (!ft_sorted(a))
-		if (gnl(&a, &b) == -1)
-			return (-1);
-	if (ft_sorted(a) == 1)
+		gnl(&a, &b);
+	if (ft_sorted(a))
 		ft_printf("OK\n");
-	else
+	else if (!ft_sorted(a))
 		ft_printf("KO\n");
 	ft_free(&a, &b, av, ac);
 	return (0);
@@ -53,7 +50,7 @@ static int	gnl(t_stack **a, t_stack **b)
 	{
 		check = do_ops(a, b, line);
 		free(line);
-		if (check == 3)
+		if (check == -1)
 			return (-1);
 		line = get_next_line(0);
 	}
@@ -83,6 +80,6 @@ static int	do_ops(t_stack **a, t_stack **b, char *line)
 	else if (ft_strncmp(line, "pb\n", 3) == 0)
 		pb(a, b, 0);
 	else
-		return (ft_printf("KO\n"));
+		return (-1);
 	return (0);
 }
