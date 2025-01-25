@@ -40,6 +40,7 @@ FT_PRINTF = $(FT_PRINTF_DIR)/libftprintf.a
 GREEN = \033[1;32m
 YELLOW = \033[1;33m
 BLUE = \033[1;34m
+RED = \033[1;31m
 RESET = \033[0m
 
 # Simulate a loading bar
@@ -48,6 +49,15 @@ define loading_bar
 	@for i in $(shell seq 1 100); do \
 		sleep 0.01; \
 		printf "\r$(BLUE)$(1): %d%%$(RESET)" $$i; \
+	done; \
+	echo "$(GREEN)\r$(1): 100% Done!$(RESET)"
+endef
+
+define loading_bar_red
+	@echo -n "$(RED)$(1):$(RESET) "
+	@for i in $(shell seq 1 100); do \
+		sleep 0.01; \
+		printf "\r$(RED)$(1): %d%%$(RESET)" $$i; \
 	done; \
 	echo "$(GREEN)\r$(1): 100% Done!$(RESET)"
 endef
@@ -77,14 +87,14 @@ $(FT_PRINTF):
 	@echo "$(YELLOW)Compiling $<...$(RESET)"
 
 clean:
-	$(call loading_bar,Cleaning object files)
+	$(call loading_bar_red,Cleaning object files)
 	@rm -rf $(OBJ) $(BONUS_OBJ) $(MAIN_OBJ)
 	@make clean -C $(LIBFT_DIR) -s
 	@make clean -C $(FT_PRINTF_DIR) -s
 	@echo "$(GREEN)Object files removed successfully!$(RESET)"
 
 fclean: clean
-	$(call loading_bar,Cleaning libraries)
+	$(call loading_bar_red,Cleaning libraries)
 	@rm -rf $(NAME_PUSH_SWAP) $(NAME_BONUS)
 	@make fclean -C $(LIBFT_DIR) -s
 	@make fclean -C $(FT_PRINTF_DIR) -s
