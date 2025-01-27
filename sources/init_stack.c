@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:17:39 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/24 16:17:41 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/27 17:49:53 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_stack	*init_stack_a(t_stack **stack, char **nums, int ac)
 	else
 		i = 1;
 	if (only_numbers(&nums[i]) == 0)
-		return (ft_printf("Error\n"), NULL);
+		return (ft_putstr_fd("Error\n", 2), NULL);
 	while (nums[i])
 	{
 		n = ft_atolong(nums[i++]);

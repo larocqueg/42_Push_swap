@@ -6,13 +6,13 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:07:46 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/27 14:33:55 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/27 19:10:34 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static int	check_spaces(char **av, int ac);
+static int	check_spaces(char **av);
 static int	gnl(t_stack **a, t_stack **b);
 static int	do_ops(t_stack **a, t_stack **b, char *line);
 
@@ -23,23 +23,18 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
-	if (ac == 1 || (ac >= 2 && !av[1][0]))
-		return (ft_printf("Error\n"));
-	if (check_spaces(&av[1], ac) == 1)
-		return (ft_printf("Error\n"));
+	if (ac == 1 || (ac == 2 && !av[1][0]))
+		return (-1);
+	if (check_spaces(&av[1]) == 1 && ac == 2)
+		return (ft_putstr_fd("Error\n", 2), -1);
 	else if (ac == 2)
 		av = ft_split(av[1], ' ');
 	if (!av || !av[0])
-		ft_printf("Error\n");
+		return (ft_putstr_fd("Error\n", 2), -1);
 	a = init_stack_a(&a, av, ac);
 	if (!a)
 		return (-1);
-	if (!ft_sorted(a))
-		gnl(&a, &b);
-	if (ft_sorted(a))
-		ft_printf("OK\n");
-	else if (!ft_sorted(a))
-		ft_printf("KO\n");
+	gnl(&a, &b);
 	ft_free(&a, &b, av, ac);
 	return (0);
 }
@@ -56,9 +51,13 @@ static int	gnl(t_stack **a, t_stack **b)
 		check = do_ops(a, b, line);
 		free(line);
 		if (check == -1)
-			return (-1);
+			return (ft_putstr_fd("Error\n", 2), -1);
 		line = get_next_line(0);
 	}
+	if (!ft_sorted(*a))
+		return (ft_printf("KO\n"));
+	else
+		return (ft_printf("OK\n"));
 	return (0);
 }
 
@@ -89,15 +88,14 @@ static int	do_ops(t_stack **a, t_stack **b, char *line)
 	return (0);
 }
 
-static int	check_spaces(char **av, int ac)
+static int	check_spaces(char **av)
 {
 	int	i;
 	int	j;
 
-	if (ac == 2)
-		i = 0;
-	else
-		i = 1;
+	if (!av)
+		return (1);
+	i = 0;
 	j = 0;
 	while (av[i])
 	{
@@ -105,7 +103,7 @@ static int	check_spaces(char **av, int ac)
 		{
 			if (av[i][j] != ' ')
 				return (0);
-			i++;
+			j++;
 		}
 		i++;
 	}
