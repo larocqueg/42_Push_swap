@@ -6,13 +6,13 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:07:46 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/25 20:53:01 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/27 14:33:55 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static int	check_spaces(char **av);
+static int	check_spaces(char **av, int ac);
 static int	gnl(t_stack **a, t_stack **b);
 static int	do_ops(t_stack **a, t_stack **b, char *line);
 
@@ -25,7 +25,7 @@ int	main(int ac, char **av)
 	b = NULL;
 	if (ac == 1 || (ac >= 2 && !av[1][0]))
 		return (ft_printf("Error\n"));
-	if (check_spaces(&av[1]) == 0)
+	if (check_spaces(&av[1], ac) == 1)
 		return (ft_printf("Error\n"));
 	else if (ac == 2)
 		av = ft_split(av[1], ' ');
@@ -89,12 +89,15 @@ static int	do_ops(t_stack **a, t_stack **b, char *line)
 	return (0);
 }
 
-static int	check_spaces(char **av)
+static int	check_spaces(char **av, int ac)
 {
 	int	i;
 	int	j;
 
-	i = 1;
+	if (ac == 2)
+		i = 0;
+	else
+		i = 1;
 	j = 0;
 	while (av[i])
 	{
