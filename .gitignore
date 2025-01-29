@@ -1,6 +1,6 @@
-*.swp
-*.a
-*.o
-push_swap
 checker
 checker_linux
+push_swap
+*.o
+*.a
+.*.swp

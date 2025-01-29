@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:07:46 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/27 19:10:34 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/29 16:11:13 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	main(int ac, char **av)
 	b = NULL;
 	if (ac == 1 || (ac == 2 && !av[1][0]))
 		return (-1);
+	if (ac > 2 && !av[1][0])
+		return (ft_putstr_fd("Error\n", 2), -1);
 	if (check_spaces(&av[1]) == 1 && ac == 2)
 		return (ft_putstr_fd("Error\n", 2), -1);
 	else if (ac == 2)
@@ -32,9 +34,8 @@ int	main(int ac, char **av)
 	if (!av || !av[0])
 		return (ft_putstr_fd("Error\n", 2), -1);
 	a = init_stack_a(&a, av, ac);
-	if (!a)
-		return (-1);
-	gnl(&a, &b);
+	if (a)
+		gnl(&a, &b);
 	ft_free(&a, &b, av, ac);
 	return (0);
 }
@@ -51,7 +52,10 @@ static int	gnl(t_stack **a, t_stack **b)
 		check = do_ops(a, b, line);
 		free(line);
 		if (check == -1)
+		{
+			get_next_line(-1);
 			return (ft_putstr_fd("Error\n", 2), -1);
+		}
 		line = get_next_line(0);
 	}
 	if (!ft_sorted(*a))
