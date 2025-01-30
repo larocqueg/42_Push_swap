@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:35:29 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/30 14:31:01 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/30 14:45:45 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,22 @@ int	ft_error(t_stack *a)
 	return (ft_putstr_fd("Error\n", 2), -1);
 }
 
+static int	only_zero(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '-' && i == 0)
+			i++;
+		if (str[i] != '0' && str[i])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 static int	valid_size(char **arr)
 {
 	int	i;
@@ -37,9 +53,10 @@ static int	valid_size(char **arr)
 		j = 0;
 		while (arr[i][j])
 		{
-			if (arr[i][j] == '-' && ft_strlen(arr[i]) > 20)
+			if (arr[i][j] == '-' && ft_strlen(arr[i]) > 20
+				&& only_zero(arr[i]) == 0)
 				return (0);
-			else if (j == 0 && ft_strlen(arr[i]) > 19)
+			else if (j == 0 && ft_strlen(arr[i]) > 19 && only_zero(arr[i]) == 0)
 				return (0);
 			else
 				break ;
@@ -64,7 +81,7 @@ int	only_numbers(char **arr)
 			{
 				if (!(arr[i][j + 1] >= '0' && arr[i][j + 1] <= '9'))
 					return (0);
-				else if (arr[i][j - 1] >= 0 && arr[i][j -1] <= 9)
+				else if (j > 1 && arr[i][j - 1] >= 0 && arr[i][j -1] <= 9)
 					return (0);
 			}
 			else if (!(arr[i][j] >= '0' && arr[i][j] <= '9'))
