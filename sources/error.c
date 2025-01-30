@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:35:29 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/30 14:45:45 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/30 16:35:13 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,27 @@ int	ft_error(t_stack *a)
 static int	only_zero(char *str)
 {
 	int	i;
+	int	j;
 
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] == '-' && i == 0)
+		if ((str[i] == '-' || str[i] == '+') && i == 0)
 			i++;
 		if (str[i] != '0' && str[i])
-			return (0);
+		{
+			j = i;
+			while (str[j])
+			{
+				if (ft_strlen(str + j) <= 20
+					&& str[0] == '-' && str[0] == '+')
+					return (1);
+				else if (ft_strlen(str + j) <= 19)
+					return (1);
+				else
+					break ;
+			}
+		}
 		i++;
 	}
 	return (1);

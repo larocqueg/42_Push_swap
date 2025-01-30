@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:18:27 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/24 16:18:28 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/30 16:28:16 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ long	ft_atolong(const char *str)
 
 	sign = 1;
 	i = 0;
-	num = 0;
 	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
 		i++;
 	if (str[i] == '+' || str[i] == '-')
@@ -53,6 +52,11 @@ long	ft_atolong(const char *str)
 			sign = -1;
 		i++;
 	}
+	while (str[i] == '0')
+		i++;
+	if (!str[i])
+		return (0);
+	num = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		num = num * 10 + (str[i] - '0');
