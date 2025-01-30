@@ -6,21 +6,11 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:14:57 by gde-la-r          #+#    #+#             */
-/*   Updated: 2024/11/16 14:16:13 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/01/30 14:32:08 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 
 char	*ft_strjoin(const char *s1, const char *s2)
 {
