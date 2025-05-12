@@ -6,7 +6,7 @@
 /*   By: gde-la-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 16:18:34 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/01/24 16:18:35 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:58:43 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ typedef struct s_stack
 	int				cheapest; // is the cheapest cost?
 	struct s_stack	*target; // target node
 	struct s_stack	*next; // points to the next node of my stack
-	struct s_stack	*prev; // uso ou n?
 }	t_stack;
 
 // sort.c

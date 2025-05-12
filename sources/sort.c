@@ -41,6 +41,8 @@ void	ft_sort_three(t_stack **s)
 		rra(s, 1);
 	else if ((*s)->n > (*s)->next->n && (*s)->n < (*s)->next->next->n)
 		sa(s, 1);
+	else if ((*s)->next->next->n > (*s)->n && (*s)->n > (*s)->next->n)
+		sa(s, 1);
 	else if ((*s)->next->n > (*s)->next->next->n)
 	{
 		sa(s, 1);

@@ -29,27 +29,16 @@ int	ft_error(t_stack *a)
 static int	only_zero(char *str)
 {
 	int	i;
-	int	j;
 
 	i = 0;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	if (!str[i])
+		return (0);
 	while (str[i])
 	{
-		if ((str[i] == '-' || str[i] == '+') && i == 0)
-			i++;
-		if (str[i] != '0' && str[i])
-		{
-			j = i;
-			while (str[j])
-			{
-				if (ft_strlen(str + j) <= 20
-					&& str[0] == '-' && str[0] == '+')
-					return (1);
-				else if (ft_strlen(str + j) <= 19)
-					return (1);
-				else
-					break ;
-			}
-		}
+		if (str[i] != '0')
+			return (0);
 		i++;
 	}
 	return (1);
@@ -67,9 +56,9 @@ static int	valid_size(char **arr)
 		while (arr[i][j])
 		{
 			if (arr[i][j] == '-' && ft_strlen(arr[i]) > 20
-				&& only_zero(arr[i]) == 0)
+				&& !only_zero(arr[i]))
 				return (0);
-			else if (j == 0 && ft_strlen(arr[i]) > 19 && only_zero(arr[i]) == 0)
+			else if (j == 0 && ft_strlen(arr[i]) > 19 && !only_zero(arr[i]))
 				return (0);
 			else
 				break ;
